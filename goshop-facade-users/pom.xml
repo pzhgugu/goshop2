@@ -19,5 +19,9 @@
             <groupId>org.goshop</groupId>
             <artifactId>goshop-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
     </dependencies>
 </project>

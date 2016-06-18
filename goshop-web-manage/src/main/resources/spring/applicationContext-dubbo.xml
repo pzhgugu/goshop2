@@ -8,7 +8,7 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="go_managet"  />
+    <dubbo:application name="goshop-web-managet"  />
     <!-- 强制检查服务 -->
     <dubbo:consumer check="false" timeout="5000" />
     <!-- 使用redis中心暴露发现服务地址-->
@@ -23,5 +23,9 @@
 
     <!-- 声明远程服务接口 -->
     <dubbo:reference id="userService"
-                     interface="org.goshop.users.i.UserService" />
+                     interface="org.goshop.users.i.UserService" check="false" />
+    <dubbo:reference id="memberService"
+                     interface="org.goshop.users.i.MemberService" check="false" />
+    <dubbo:reference id="adminService"
+                     interface="org.goshop.users.i.AdminService" check="false" />
 </beans>

@@ -6,13 +6,13 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>会员管理</title>
 
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery-browser.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/waypoints.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.validation.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery-ui/jquery.ui.js"></script>
-    <script src="${S_COMMON_URL}/scripts/utils/area_array.js"></script>
-    <script src="${S_COMMON_URL}/scripts/shop/common.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery-browser.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/waypoints.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.validation.js"></script>
+    <script src="${S_URL}/static/scripts/jquery-ui/jquery.ui.js"></script>
+    <script src="${S_URL}/static/scripts/utils/area_array.js"></script>
+    <script src="${S_URL}/static/scripts/shop/common.js"></script>
     <script src="${S_URL}/static/scripts/admincp.js"></script>
     <link id="cssfile2" type="text/css" rel="stylesheet" href="${S_URL}/static/styles/skin_0.css">
     <script type="text/javascript">
@@ -109,7 +109,7 @@
             <tr class="noborder">
                 <td class="vatop rowform">
 			<span class="type-file-show">
-			<img src="${S_COMMON_URL}/images/preview.png" class="show_image">
+			<img src="${S_URL}/static/images/preview.png" class="show_image">
 			<div style="display: none;" class="type-file-preview"><img id="view_img"></div>
 			</span>
             <span class="type-file-box">
@@ -139,12 +139,12 @@
         </table>
     </form>
 </div>
-<script charset="utf-8" id="dialog_js" src="${S_COMMON_URL}/scripts/dialog/dialog.js" type="text/javascript"></script>
-<link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/scripts/dialog/dialog.css">
-<script src="${S_COMMON_URL}/scripts/jquery-ui/jquery.ui.js" type="text/javascript"></script>
-<script src="${S_COMMON_URL}/scripts/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
-<script src="${S_COMMON_URL}/scripts/jquery.Jcrop/jquery.Jcrop.js" type="text/javascript"></script>
-<link id="cssfile2" type="text/css" rel="stylesheet" href="${S_COMMON_URL}/scripts/jquery.Jcrop/jquery.Jcrop.min.css">
+<script charset="utf-8" id="dialog_js" src="${S_URL}/static/scripts/dialog/dialog.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="${S_URL}/static/scripts/dialog/dialog.css">
+<script src="${S_URL}/static/scripts/jquery-ui/jquery.ui.js" type="text/javascript"></script>
+<script src="${S_URL}/static/scripts/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+<script src="${S_URL}/static/scripts/jquery.Jcrop/jquery.Jcrop.js" type="text/javascript"></script>
+<link id="cssfile2" type="text/css" rel="stylesheet" href="${S_URL}/static/scripts/jquery.Jcrop/jquery.Jcrop.min.css">
 <script type="text/javascript">
     //裁剪图片后返回接收函数
     function call_back(picname){

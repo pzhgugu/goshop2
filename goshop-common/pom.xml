@@ -12,4 +12,11 @@
     <artifactId>goshop-common</artifactId>
     <packaging>jar</packaging>
 
+    <!-- 依赖管理 -->
+    <dependencies>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
+    </dependencies>
 </project>

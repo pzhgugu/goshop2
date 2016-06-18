@@ -21,7 +21,7 @@ public class RedisSessionDAO extends AbstractSessionDAO {
      * shiro-redis的session对象前缀
      */
 
-    private String keyPrefix = "goshop_shiro_redis_session:";
+    private String keyPrefix = "goshop2_shiro_redis_session:";
 
     /**
      * 设置缓存永不过期

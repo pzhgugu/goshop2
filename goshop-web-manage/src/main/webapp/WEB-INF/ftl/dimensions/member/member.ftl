@@ -6,13 +6,13 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>会员管理</title>
 
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery-browser.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/waypoints.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.validation.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery-ui/jquery.ui.js"></script>
-    <script src="${S_COMMON_URL}/scripts/utils/area_array.js"></script>
-    <script src="${S_COMMON_URL}/scripts/shop/common.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery-browser.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/waypoints.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.validation.js"></script>
+    <script src="${S_URL}/static/scripts/jquery-ui/jquery.ui.js"></script>
+    <script src="${S_URL}/static/scripts/utils/area_array.js"></script>
+    <script src="${S_URL}/static/scripts/shop/common.js"></script>
     <script src="${S_URL}/static/scripts/admincp.js"></script>
     <link id="cssfile2" type="text/css" rel="stylesheet" href="${S_URL}/static/styles/skin_0.css">
     <script type="text/javascript">
@@ -98,7 +98,7 @@
 <#list P_PAGE.list as o>
         <tr class="hover member" style="background: rgb(255, 255, 255) none repeat scroll 0% 0%;">
             <td class="w24"></td>
-            <td class="w48 picture"><div class="size-44x44"><span class="thumb size-44x44"><i></i><img width="44" height="44" onload="javascript:DrawImage(this,44,44);" src="${S_COMMON_URL}/images/default_user_portrait.gif"></span></div></td>
+            <td class="w48 picture"><div class="size-44x44"><span class="thumb size-44x44"><i></i><img width="44" height="44" onload="javascript:DrawImage(this,44,44);" src="${S_URL}/static/images/default_user_portrait.gif"></span></div></td>
             <td><p class="name"><strong>${o.loginName}</strong>(真实姓名: ${o.memberTruename!})</p>
                 <p class="smallfont">注册时间:&nbsp;${o.memberTime?string("yyyy-MM-dd HH:mm:ss")}</p>
 

@@ -24,6 +24,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="goshop-facade-users" />
     <orderEntry type="module" module-name="goshop-common" />
+    <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:3.4.2-fix" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.2.8" level="project" />
+    <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9" level="project" />
     <orderEntry type="module" module-name="goshop-common-config" />
     <orderEntry type="module" module-name="goshop-common-service" />
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.7.3" level="project" />

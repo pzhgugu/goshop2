@@ -1,7 +1,6 @@
 package org.goshop.users.mapper.master;
 
-
-import javax.management.relation.Role;
+import org.goshop.users.pojo.Role;
 
 public interface RoleMapper {
     int deleteByPrimaryKey(Long id);

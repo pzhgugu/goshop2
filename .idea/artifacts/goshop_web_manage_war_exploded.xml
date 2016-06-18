@@ -13,6 +13,9 @@
           <element id="archive" name="goshop-common-2.0-SNAPSHOT.jar">
             <element id="module-output" name="goshop-common" />
           </element>
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:3.4.2-fix" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.8" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9" />
           <element id="archive" name="goshop-common-config-2.0-SNAPSHOT.jar">
             <element id="module-output" name="goshop-common-config" />
           </element>

@@ -51,8 +51,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByLoginName(String loginName) {
-       User user= readUserMapper.findByLoginName(loginName);
-        return user;
+        return readUserMapper.findByLoginName(loginName);
     }
 
     @Override
