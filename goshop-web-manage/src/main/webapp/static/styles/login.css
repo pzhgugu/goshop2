@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* ================================ */
+/* Theme By ShopNC SystemLogin  	*/
+/* Author:			Hulihutu		*/
+/* Copyright:		www.shopnc.net	*/
+/* Create Date:		Jun-01-2013		*/
+/* Retrofit Date:	Jun-04-2013		*/
+/* ================================ */
+
+*{ word-wrap: break-word; outline:none; }
+html, body { height:100%; margin:0; -webkit-text-size-adjust:none; }
+body { background: #555; font-family: "Microsoft YaHei", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Helvetica, Arial,  sans-serif;}
+h2, h5, h6 { margin: 0;}
+input { outline:none}
+
+
+.bg-dot { background: url(../images/login/login_bg_dot.png) repeat center center; width: 100%; height: 100%; z-index: 2;}
+
+.login-layout { width: 640px; margin: -200px auto auto -340px; position: absolute; z-index: 3; top: 50%; left: 50%; }
+.login-layout .top { color: #FFF; text-shadow: 1px 1px 0 rgba(0,0,0,0.25); width: 100%px; height: 60px; margin: 0 auto; position: relative; z-index: 1;}
+.login-layout .top h5 { font-size: 13px; font-weight: 600; line-height: 20px; display: block; height: 20px; position: absolute ; z-index: 1; top: 0; left: 0;}
+.login-layout .top h5 em { font-family:Tahoma; font-size: 10px; font-style: normal; margin-left: 4px;}
+.login-layout .top h2 { font-size: 32px; font-weight: 600; line-height: 36px; display: block; height: 36px; position: absolute ; z-index: 1; top: 20px; left: 0;}
+.login-layout .top h6 { font-size: 11px; font-weight: 600; line-height: 16px; display: block; height: 16px; position: absolute ; z-index: 1; top: 44px; left: 224px;}
+
+.login-layout .box { height: 40px; margin: 30px 0 0 0;}
+.login-layout .box span { display: block; float: left; padding: 0; margin: 0 6px 0 0; position: relative; z-index: 1;}
+.login-layout .box span label { font-size: 14px; font-weight: 600; line-height: 20px; color: #555555; display: block; height: 20px; padding-right: 10px; border-right: dotted 1px #999; position: absolute; z-index: 9; top: 10px; left: 10px;}
+
+.input-text, .input-password, .input-code { font-family: Verdana, Geneva, sans-serif; font-size: 14px; font-weight: 600; color: #555555; line-height: 28px; filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#CCFFFFFF', endColorstr='#CCFFFFFF'); background:rgba(255,255,255,0.8); height: 28px; *float: left/*IE7*/; padding: 6px; border: 0; position: relative; z-index: 1; box-shadow: inset 1px 1px 0 rgba(0,0,0,0.5); -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,0.5)/*webkit*/;}
+.input-text:focus, .input-password:focus, .input-code:focus { color: #000; background-color: #FFF; box-shadow: 1px 1px 0 0 rgba(0,0,0,0.25);/*IE8*/  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"; /*IE5.5-7*/ filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');}
+.input-text, .input-password { width: 164px; padding-left: 56px;}
+.input-code { width: 68px;}
+
+.code { background-color: #FFFFFF; width: 114px; height: 34px; border: solid 1px #555; border-radius: 4px; position: absolute; z-index: 9; top: -40px; left: -10px; display: none; box-shadow: 0 2px 2px 2px rgba(0,0,0,0.25);}
+.code .arrow { background:url(../images/login/login_code.gif) no-repeat 0 0; display: block; width: 14px; height: 7px; position: absolute; left: 21px; bottom: -7px;}
+.code img { width: 90px; height: 26px; position: absolute; z-index: 1; top: 4px; left: 4px;}
+.code .close { display: block; width: 10px; height: 10px; padding: 1px; position: absolute; z-index: 1; top: 4px; right: 4px;}
+.code .close:hover, .login-layout .box span .code .change:hover { background-color: #CCC; border-radius: 5px; -webkit-border-radius: 5px/*webkit*/;}
+.code .close i { background: url(../images/login/login_code.gif) no-repeat 0 -7px; display: block; width: 10px; height: 10px; opacity: 0.5;}
+.code .change { display: block; width: 10px; height: 10px; padding: 1px; position: absolute; z-index: 1; bottom: 4px; right: 4px;}
+.code .change i { background: url(../images/login/login_code.gif) no-repeat -10px -7px; display: block; width: 10px; height: 10px; opacity: 0.5;}
+.code .close:hover i , .login-layout .box span .code .change:hover i { opacity: 1;}
+
+.input-button { font-family: "Microsoft YaHei", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Helvetica, Arial,  sans-serif; font-size: 15px; font-weight: 600; color: #FFF; filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#BF000000', endColorstr='#BF000000');background:rgba(0,0,0,0.75); width: 80px; height: 40px; border: 0; cursor: pointer;}
+.input-button:hover { background-color: #000000 !important; box-shadow: 0 0 3px 1px rgba(255,255,255,0.5);}
+
+.bottom {  font-family: Verdana, Tahoma; line-height: 16px; color: #FFF; text-shadow: 1px 1px 0 rgba(0,0,0,0.25); text-align: center; width: 600px; margin-left: -300px; position: fixed; bottom: 60px; left: 50%;}
+.bottom a { color: #FFFFFF; text-decoration: none;}
+.bottom a:hover { color: #FF0; text-decoration: blink;}
+.bottom h5 {font-size: 12px;}
+.bottom h6 { font-size: 10px;}

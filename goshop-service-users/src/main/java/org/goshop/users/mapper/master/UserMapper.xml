@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.users.mapper.master.UserMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.users.pojo.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="DATE" />
+    <result column="upcreated" property="upcreated" jdbcType="DATE" />
+    <result column="login_num" property="loginNum" jdbcType="INTEGER" />
+    <result column="login_time" property="loginTime" jdbcType="TIME" />
+    <result column="old_login_time" property="oldLoginTime" jdbcType="TIME" />
+    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
+    <result column="old_login_ip" property="oldLoginIp" jdbcType="VARCHAR" />
+    <collection property="roleList" ofType="org.goshop.users.pojo.Role">
+      <id column="r_id" property="id" jdbcType="BIGINT" />
+      <result column="r_name" property="name" jdbcType="VARCHAR" />
+      <result column="r_alias" property="alias" jdbcType="VARCHAR" />
+      <result column="r_enable" property="enable" jdbcType="INTEGER" />
+      <result column="r_type" property="type" jdbcType="INTEGER" />
+    </collection>
+  </resultMap>
+    <resultMap id="roleResultMap" type="org.goshop.users.pojo.Role" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="alias" property="alias" jdbcType="VARCHAR" />
+        <result column="enable" property="enable" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+    </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_name, login_name, password, salt, enable, type, created, upcreated,login_num,login_time,
+    old_login_time, login_ip,old_login_ip
+  </sql>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gs_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.users.pojo.User" useGeneratedKeys="true" keyProperty="id">
+    insert into gs_user (id, user_name, login_name, 
+      password, salt, enable, 
+      type, created, upcreated,login_num,login_time,
+    old_login_time, login_ip,old_login_ip)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{enable,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{created,jdbcType=DATE}, #{upcreated,jdbcType=DATE},
+      {loginNum,jdbcType=INTEGER},{loginTime,jdbcType=TIME},{oldLoginTime,jdbcType=TIME},
+      {loginIp,jdbcType=VARCHAR},{oldLoginIp,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.users.pojo.User" useGeneratedKeys="true" keyProperty="id">
+    insert into gs_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="loginName != null" >
+        login_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="salt != null" >
+        salt,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="upcreated != null" >
+        upcreated,
+      </if>
+      <if test="loginNum != null" >
+        login_num,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="oldLoginTime != null" >
+        old_login_time,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="oldLoginIp != null" >
+        old_login_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=DATE},
+      </if>
+      <if test="upcreated != null" >
+        #{upcreated,jdbcType=DATE},
+      </if>
+      <if test="loginNum != null" >
+        #{loginNum,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=TIME},
+      </if>
+      <if test="oldLoginTime != null" >
+        #{oldLoginTime,jdbcType=TIME},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="oldLoginIp != null" >
+        #{oldLoginIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.users.pojo.User" >
+    update gs_user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null" >
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=DATE},
+      </if>
+      <if test="upcreated != null" >
+        upcreated = #{upcreated,jdbcType=DATE},
+      </if>
+      <if test="loginNum != null" >
+        login_num = #{loginNum,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIME},
+      </if>
+      <if test="oldLoginTime != null" >
+        old_login_time = #{oldLoginTime,jdbcType=TIME},
+      </if>
+      <if test="loginIp != null" >
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="oldLoginIp != null" >
+        old_login_ip = #{oldLoginIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.users.pojo.User" >
+    update gs_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      created = #{created,jdbcType=DATE},
+      upcreated = #{upcreated,jdbcType=DATE},
+      login_num = #{loginNum,jdbcType=INTEGER},
+      login_time = #{loginTime,jdbcType=TIME},
+      old_login_time = #{oldLoginTime,jdbcType=TIME},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      old_login_ip = #{oldLoginIp,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateLoginInfo" parameterType="org.goshop.users.pojo.User" >
+    update gs_user
+    <set >
+      <if test="loginNum != null" >
+        login_num = #{loginNum,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime,jdbcType=TIME},
+      </if>
+      <if test="oldLoginTime != null" >
+        old_login_time = #{oldLoginTime,jdbcType=TIME},
+      </if>
+      <if test="loginIp != null" >
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="oldLoginIp != null" >
+        old_login_ip = #{oldLoginIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

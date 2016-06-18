@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/goshop-common/goshop-common.iml" filepath="$PROJECT_DIR$/goshop-common/goshop-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-common-config/goshop-common-config.iml" filepath="$PROJECT_DIR$/goshop-common-config/goshop-common-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-common-service/goshop-common-core.iml" filepath="$PROJECT_DIR$/goshop-common-service/goshop-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-common-service/goshop-common-service.iml" filepath="$PROJECT_DIR$/goshop-common-service/goshop-common-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-common-shiro/goshop-common-shiro.iml" filepath="$PROJECT_DIR$/goshop-common-shiro/goshop-common-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-common-web/goshop-common-web.iml" filepath="$PROJECT_DIR$/goshop-common-web/goshop-common-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-facade-users/goshop-facade-users.iml" filepath="$PROJECT_DIR$/goshop-facade-users/goshop-facade-users.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-service-users/goshop-service-users.iml" filepath="$PROJECT_DIR$/goshop-service-users/goshop-service-users.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop-web-manage/goshop-web-manage.iml" filepath="$PROJECT_DIR$/goshop-web-manage/goshop-web-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goshop2.iml" filepath="$PROJECT_DIR$/goshop2.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.users.mapper.master.UserRoleMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.users.pojo.UserRole" >
+    <result column="r_id" property="rId" jdbcType="BIGINT" />
+    <result column="u_id" property="uId" jdbcType="BIGINT" />
+  </resultMap>
+  <insert id="insert" parameterType="org.goshop.users.pojo.UserRole" >
+    insert into gs_user_role (r_id, u_id)
+    values (#{rId,jdbcType=BIGINT}, #{uId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.users.pojo.UserRole" >
+    insert into gs_user_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rId != null" >
+        r_id,
+      </if>
+      <if test="uId != null" >
+        u_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rId != null" >
+        #{rId,jdbcType=BIGINT},
+      </if>
+      <if test="uId != null" >
+        #{uId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+
+
+  <select id="findByUIdAndRId" resultMap="BaseResultMap" >
+    select
+    *
+    from gs_user_role
+    where u_id = #{uId,jdbcType=BIGINT} and r_id = #{rId,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByUIdAndRId" >
+    delete from gs_user_role
+    where u_id = #{uId,jdbcType=BIGINT} and r_id = #{rId,jdbcType=BIGINT}
+  </delete>
+</mapper>
