@@ -12,6 +12,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="goshop-common" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:3.4.2-fix" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.2.8" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9" level="project" />

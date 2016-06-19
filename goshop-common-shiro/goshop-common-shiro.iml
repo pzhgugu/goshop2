@@ -30,6 +30,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.csource:fastdfs-client-java:1.25" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.4" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />

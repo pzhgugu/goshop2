@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.cms.mapper.master.ArticleLangInfoMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.cms.pojo.ArticleLangInfo" >
+    <id column="article_info_id" property="articleInfoId" jdbcType="BIGINT" />
+    <result column="article_id" property="articleId" jdbcType="BIGINT" />
+    <result column="lang_type" property="langType" jdbcType="VARCHAR" />
+    <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <result column="article_author" property="articleAuthor" jdbcType="VARCHAR" />
+    <result column="article_abstract" property="articleAbstract" jdbcType="VARCHAR" />
+    <result column="article_keyword" property="articleKeyword" jdbcType="VARCHAR" />
+    <result column="article_click" property="articleClick" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.goshop.cms.pojo.ArticleLangInfo" extends="BaseResultMap" >
+    <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    article_info_id, article_id, lang_type, article_title, article_author, article_abstract, 
+    article_keyword, article_click
+  </sql>
+  <sql id="Blob_Column_List" >
+    article_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_article_lang_info
+    where article_info_id = #{articleInfoId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gs_article_lang_info
+    where article_info_id = #{articleInfoId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.cms.pojo.ArticleLangInfo" >
+    insert into gs_article_lang_info (article_info_id, article_id, lang_type, 
+      article_title, article_author, article_abstract, 
+      article_keyword, article_click, article_content
+      )
+    values (#{articleInfoId,jdbcType=BIGINT}, #{articleId,jdbcType=BIGINT}, #{langType,jdbcType=VARCHAR}, 
+      #{articleTitle,jdbcType=VARCHAR}, #{articleAuthor,jdbcType=VARCHAR}, #{articleAbstract,jdbcType=VARCHAR}, 
+      #{articleKeyword,jdbcType=VARCHAR}, #{articleClick,jdbcType=INTEGER}, #{articleContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.cms.pojo.ArticleLangInfo" >
+    insert into gs_article_lang_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleInfoId != null" >
+        article_info_id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="langType != null" >
+        lang_type,
+      </if>
+      <if test="articleTitle != null" >
+        article_title,
+      </if>
+      <if test="articleAuthor != null" >
+        article_author,
+      </if>
+      <if test="articleAbstract != null" >
+        article_abstract,
+      </if>
+      <if test="articleKeyword != null" >
+        article_keyword,
+      </if>
+      <if test="articleClick != null" >
+        article_click,
+      </if>
+      <if test="articleContent != null" >
+        article_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleInfoId != null" >
+        #{articleInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="langType != null" >
+        #{langType,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTitle != null" >
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAuthor != null" >
+        #{articleAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAbstract != null" >
+        #{articleAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="articleKeyword != null" >
+        #{articleKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="articleClick != null" >
+        #{articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="articleContent != null" >
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.cms.pojo.ArticleLangInfo" >
+    update gs_article_lang_info
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="langType != null" >
+        lang_type = #{langType,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTitle != null" >
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAuthor != null" >
+        article_author = #{articleAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAbstract != null" >
+        article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="articleKeyword != null" >
+        article_keyword = #{articleKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="articleClick != null" >
+        article_click = #{articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="articleContent != null" >
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_info_id = #{articleInfoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.goshop.cms.pojo.ArticleLangInfo" >
+    update gs_article_lang_info
+    set article_id = #{articleId,jdbcType=BIGINT},
+      lang_type = #{langType,jdbcType=VARCHAR},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_author = #{articleAuthor,jdbcType=VARCHAR},
+      article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      article_keyword = #{articleKeyword,jdbcType=VARCHAR},
+      article_click = #{articleClick,jdbcType=INTEGER},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where article_info_id = #{articleInfoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.cms.pojo.ArticleLangInfo" >
+    update gs_article_lang_info
+    set article_id = #{articleId,jdbcType=BIGINT},
+      lang_type = #{langType,jdbcType=VARCHAR},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_author = #{articleAuthor,jdbcType=VARCHAR},
+      article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      article_keyword = #{articleKeyword,jdbcType=VARCHAR},
+      article_click = #{articleClick,jdbcType=INTEGER}
+    where article_info_id = #{articleInfoId,jdbcType=BIGINT}
+  </update>
+  <delete id="deleteByArticleId" parameterType="java.lang.Long" >
+    delete from gs_article_lang_info
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </delete>
+</mapper>

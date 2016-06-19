@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.cms.mapper.master.CmsSlideMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.cms.pojo.CmsSlide" >
+    <id column="slide_id" property="slideId" jdbcType="INTEGER" />
+    <result column="slide_path" property="slidePath" jdbcType="VARCHAR" />
+    <result column="slide_url" property="slideUrl" jdbcType="VARCHAR" />
+    <result column="slide_sort" property="slideSort" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    slide_id, slide_path, slide_url, slide_sort
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gs_cms_slide
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gs_cms_slide
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.cms.pojo.CmsSlide" >
+    insert into gs_cms_slide (slide_id, slide_path, slide_url, 
+      slide_sort)
+    values (#{slideId,jdbcType=INTEGER}, #{slidePath,jdbcType=VARCHAR}, #{slideUrl,jdbcType=VARCHAR}, 
+      #{slideSort,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective"  useGeneratedKeys="true" keyProperty="slideId"   parameterType="org.goshop.cms.pojo.CmsSlide" >
+    insert into gs_cms_slide
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="slideId != null" >
+        slide_id,
+      </if>
+      <if test="slidePath != null" >
+        slide_path,
+      </if>
+      <if test="slideUrl != null" >
+        slide_url,
+      </if>
+      <if test="slideSort != null" >
+        slide_sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="slideId != null" >
+        #{slideId,jdbcType=INTEGER},
+      </if>
+      <if test="slidePath != null" >
+        #{slidePath,jdbcType=VARCHAR},
+      </if>
+      <if test="slideUrl != null" >
+        #{slideUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="slideSort != null" >
+        #{slideSort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.cms.pojo.CmsSlide" >
+    update gs_cms_slide
+    <set >
+      <if test="slidePath != null" >
+        slide_path = #{slidePath,jdbcType=VARCHAR},
+      </if>
+      <if test="slideUrl != null" >
+        slide_url = #{slideUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="slideSort != null" >
+        slide_sort = #{slideSort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.cms.pojo.CmsSlide" >
+    update gs_cms_slide
+    set slide_path = #{slidePath,jdbcType=VARCHAR},
+      slide_url = #{slideUrl,jdbcType=VARCHAR},
+      slide_sort = #{slideSort,jdbcType=INTEGER}
+    where slide_id = #{slideId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from gs_cms_slide order by slide_sort
+  </select>
+</mapper>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.cms.mapper.master.CmsArticleClassMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.cms.pojo.CmsArticleClass" >
+    <id column="class_id" property="classId" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="class_name" property="className" jdbcType="VARCHAR" />
+    <result column="class_sort" property="classSort" jdbcType="BIT" />
+    <result column="grade" property="grade" jdbcType="INTEGER" />
+    <collection property="children" ofType="org.goshop.cms.pojo.CmsArticleClass" column="PARENT_ID">
+      <id column="c_class_id" property="classId" jdbcType="BIGINT" />
+      <result column="c_parent_id" property="parentId" jdbcType="BIGINT" />
+      <result column="c_class_name" property="className" jdbcType="VARCHAR" />
+      <result column="c_class_sort" property="classSort" jdbcType="BIT" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    class_id, parent_id, class_name, class_sort
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from gs_cms_article_class
+    where class_id = #{classId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gs_cms_article_class
+    where class_id = #{classId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.cms.pojo.CmsArticleClass" >
+    insert into gs_cms_article_class (class_id, parent_id, class_name, 
+      class_sort)
+    values (#{classId,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{className,jdbcType=VARCHAR}, 
+      #{classSort,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.cms.pojo.CmsArticleClass" >
+    insert into gs_cms_article_class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="classId != null" >
+        class_id,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="className != null" >
+        class_name,
+      </if>
+      <if test="classSort != null" >
+        class_sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="classId != null" >
+        #{classId,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="className != null" >
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classSort != null" >
+        #{classSort,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.cms.pojo.CmsArticleClass" >
+    update gs_cms_article_class
+    <set >
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="className != null" >
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classSort != null" >
+        class_sort = #{classSort,jdbcType=BIT},
+      </if>
+    </set>
+    where class_id = #{classId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.cms.pojo.CmsArticleClass" >
+    update gs_cms_article_class
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      class_name = #{className,jdbcType=VARCHAR},
+      class_sort = #{classSort,jdbcType=BIT}
+    where class_id = #{classId,jdbcType=BIGINT}
+  </update>
+
+  <select id="findGradeByParentId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    SELECT
+    leaf.*, COUNT(entity.class_id) AS grade
+    FROM
+    gs_cms_article_class leaf
+    LEFT JOIN gs_cms_article_class entity ON leaf.class_id = entity.parent_id
+    WHERE
+    <if test="parentId == null" >
+      leaf.parent_id  is null
+    </if>
+    <if test="parentId != null" >
+      leaf.parent_id  = #{parentId,jdbcType=BIGINT}
+    </if>
+    GROUP BY
+    leaf.class_id
+    order by leaf.class_sort,leaf.class_id
+  </select>
+
+  <select id="findByParentId" resultMap="BaseResultMap" parameterType="java.lang.Long"  >
+    select
+    <include refid="Base_Column_List" />
+    from gs_cms_article_class
+    where
+    <if test="parentId != null" >
+      parent_id = #{parentId,jdbcType=BIGINT}
+    </if>
+    <if test="parentId == null" >
+      parent_id is null
+    </if>
+    order by class_sort
+  </select>
+
+
+  <select id="findByNameParentId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from gs_cms_article_class
+    where class_name = #{className,jdbcType=VARCHAR} and
+    <if test="parentId != null" >
+      parent_id = #{parentId,jdbcType=BIGINT}
+    </if>
+    <if test="parentId == null" >
+      parent_id is null
+    </if>
+  </select>
+
+  <update id="updateClassSort" >
+    update gs_cms_article_class
+    set class_sort = #{classSort,jdbcType=INTEGER}
+    where class_id = #{classId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateClassName" >
+    update gs_cms_article_class
+    set class_name = #{className,jdbcType=VARCHAR}
+    where class_id = #{classId,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="findTreeByParentId" parameterType="long" resultMap="BaseResultMap">
+    SELECT
+    t.class_id ,
+    t. class_name,
+    t.class_sort ,
+    t.parent_id,
+    child.class_id AS c_class_id,
+    child.class_name AS c_class_name,
+    child.class_sort AS c_class_sort,
+    child.parent_id AS c_parent_id
+    FROM
+    gs_cms_article_class t
+    left join gs_cms_article_class child ON (child.parent_id = t.class_id)
+    WHERE
+    <if test="parentId != null" >
+      child.parent_id = #{parentId,jdbcType=BIGINT}
+    </if>
+    <if test="parentId == null" >
+      t.parent_id is null
+    </if>
+    order by t.class_sort
+  </select>
+
+
+</mapper>

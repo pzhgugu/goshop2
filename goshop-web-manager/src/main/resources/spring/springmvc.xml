@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="org.goshop.*.controller"/>
+    <mvc:annotation-driven/>
+
+    <bean id="exceptionResolver" class="org.goshop.common.context.ExceptionHandler" />
+    <bean id="message" class="org.goshop.common.context.RedisMessage" />
+
+    <context:property-placeholder  ignore-resource-not-found="true"
+                                    location="classpath:resource/*.properties,
+                                  file:/root/web_home/manager/resource/*.properties" />
+    <bean id="freemarkerConfiguration"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:resource/freemarker.properties" />
+
+    </bean>
+
+    <!-- freemaker  Directive-->
+    <bean id="blockDirective" class="cn.org.rapid_framework.freemarker.directive.BlockDirective"/>
+    <bean id="extendsDirective" class="cn.org.rapid_framework.freemarker.directive.ExtendsDirective"/>
+    <bean id="overrideDirective" class="cn.org.rapid_framework.freemarker.directive.OverrideDirective"/>
+    <bean id="superDirective" class="cn.org.rapid_framework.freemarker.directive.SuperDirective"/>
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"
+          p:prefix="${TPL}" p:suffix=".ftl">
+
+        <property name="cache" value="false" />
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+        <property name="exposeRequestAttributes" value="true" />
+        <property name="exposeSessionAttributes" value="true" />
+        <property name="exposeSpringMacroHelpers" value="true" />
+        <property name="requestContextAttribute" value="request" />
+        <property name="order" value="0"></property>
+    </bean>
+
+    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
+    <!--    <bean id="freemarkerConfig"
+              class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
+
+    <bean id="freemarkerConfig"
+          class="org.goshop.shiro.tag.ShiroTagFreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="freemarkerVariables">
+            <map>
+                <entry key="xml_escape" value-ref="fmXmlEscape" />
+                <entry key="S_COMMON_URL" value="${COMMON_URL}"></entry>
+                <entry key="MANAGER_URL" value="${MANAGER_URL}"></entry>
+                <entry key="SHOP_URL" value="${SHOP_URL}"></entry>
+                <entry key="SHOP_REST_URL" value="${SHOP_REST_URL}"></entry>
+                <entry key="SELLER_URL" value="${SELLER_URL}"></entry>
+                <!--下面四个是在下面定义的模板继承-->
+                <entry key="extends" value-ref="extendsDirective"/>
+                <entry key="override" value-ref="overrideDirective"/>
+                <entry key="block" value-ref="blockDirective"/>
+                <entry key="super" value-ref="superDirective"/>
+            </map>
+        </property>
+        <property name="freemarkerSettings" ref="freemarkerConfiguration">
+
+        </property>
+    </bean>
+
+    <!-- 定义文件上传解析器 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设定默认编码 -->
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+        <property name="maxUploadSize" value="5242880"></property>
+    </bean>
+    <!--本地文件-->
+    <bean id="attachmentService" class="org.goshop.common.attachment.LocalhostAttachmentImpl" />
+    <!-- 文件服务器
+    <bean id="attachmentService" class="org.goshop.common.attachment.FastDFSAttachmentImpl" >
+        <property name="hostName" value="${fastdfs.hostName}" />
+        <property name="port" value="${fastdfs.port}" />
+        <property name="charset" value="${fastdfs.charset}" />
+        <property name="networkTimeout" value="${fastdfs.networkTimeout}" />
+        <property name="http" value="${fastdfs.http}" />
+    </bean>-->
+
+</beans>

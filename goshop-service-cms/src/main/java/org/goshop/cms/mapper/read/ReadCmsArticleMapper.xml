@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.cms.mapper.read.ReadCmsArticleMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.cms.pojo.CmsArticle" >
+    <id column="article_id" property="articleId" jdbcType="BIGINT" />
+    <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <result column="article_class_id" property="articleClassId" jdbcType="BIGINT" />
+    <result column="article_origin" property="articleOrigin" jdbcType="VARCHAR" />
+    <result column="article_origin_address" property="articleOriginAddress" jdbcType="VARCHAR" />
+    <result column="article_author" property="articleAuthor" jdbcType="VARCHAR" />
+    <result column="article_abstract" property="articleAbstract" jdbcType="VARCHAR" />
+    <result column="article_image" property="articleImage" jdbcType="VARCHAR" />
+    <result column="article_keyword" property="articleKeyword" jdbcType="VARCHAR" />
+    <result column="article_link" property="articleLink" jdbcType="VARCHAR" />
+    <result column="article_start_time" property="articleStartTime" jdbcType="TIMESTAMP" />
+    <result column="article_end_time" property="articleEndTime" jdbcType="TIMESTAMP" />
+    <result column="article_publish_time" property="articlePublishTime" jdbcType="TIMESTAMP" />
+    <result column="article_click" property="articleClick" jdbcType="INTEGER" />
+    <result column="article_sort" property="articleSort" jdbcType="BIT" />
+    <result column="article_digest" property="articleDigest" jdbcType="BIT" />
+    <result column="article_commend_flag" property="articleCommendFlag" jdbcType="BIT" />
+    <result column="article_comment_flag" property="articleCommentFlag" jdbcType="BIT" />
+    <result column="article_verify_admin" property="articleVerifyAdmin" jdbcType="VARCHAR" />
+    <result column="article_verify_time" property="articleVerifyTime" jdbcType="TIMESTAMP" />
+    <result column="article_state" property="articleState" jdbcType="BIT" />
+    <result column="article_publisher_name" property="articlePublisherName" jdbcType="VARCHAR" />
+    <result column="article_publisher_id" property="articlePublisherId" jdbcType="BIGINT" />
+    <result column="article_type" property="articleType" jdbcType="BIT" />
+    <result column="article_attachment_path" property="articleAttachmentPath" jdbcType="VARCHAR" />
+    <result column="article_modify_time" property="articleModifyTime" jdbcType="TIMESTAMP" />
+    <result column="article_tag" property="articleTag" jdbcType="VARCHAR" />
+    <result column="article_comment_count" property="articleCommentCount" jdbcType="INTEGER" />
+    <result column="article_attitude_1" property="articleAttitude1" jdbcType="INTEGER" />
+    <result column="article_attitude_2" property="articleAttitude2" jdbcType="INTEGER" />
+    <result column="article_attitude_3" property="articleAttitude3" jdbcType="INTEGER" />
+    <result column="article_attitude_4" property="articleAttitude4" jdbcType="INTEGER" />
+    <result column="article_attitude_5" property="articleAttitude5" jdbcType="INTEGER" />
+    <result column="article_attitude_6" property="articleAttitude6" jdbcType="INTEGER" />
+    <result column="article_title_short" property="articleTitleShort" jdbcType="VARCHAR" />
+    <result column="article_attitude_flag" property="articleAttitudeFlag" jdbcType="BIT" />
+    <result column="article_commend_image_flag" property="articleCommendImageFlag" jdbcType="BIT" />
+    <result column="article_share_count" property="articleShareCount" jdbcType="INTEGER" />
+    <result column="article_verify_reason" property="articleVerifyReason" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.goshop.cms.pojo.CmsArticleWithBLOBs" extends="BaseResultMap" >
+    <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
+    <result column="article_goods" property="articleGoods" jdbcType="LONGVARCHAR" />
+    <result column="article_image_all" property="articleImageAll" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    article_id, article_title, article_class_id, article_origin, article_origin_address, 
+    article_author, article_abstract, article_image, article_keyword, article_link, article_start_time, 
+    article_end_time, article_publish_time, article_click, article_sort, article_digest, 
+    article_commend_flag, article_comment_flag, article_verify_admin, article_verify_time, 
+    article_state, article_publisher_name, article_publisher_id, article_type, article_attachment_path, 
+    article_modify_time, article_tag, article_comment_count, article_attitude_1, article_attitude_2, 
+    article_attitude_3, article_attitude_4, article_attitude_5, article_attitude_6, article_title_short, 
+    article_attitude_flag, article_commend_image_flag, article_share_count, article_verify_reason
+  </sql>
+  <sql id="Blob_Column_List" >
+    article_content, article_goods, article_image_all
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_cms_article
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from gs_cms_article
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.cms.pojo.CmsArticleWithBLOBs" >
+    insert into gs_cms_article (article_id, article_title, article_class_id, 
+      article_origin, article_origin_address, article_author, 
+      article_abstract, article_image, article_keyword, 
+      article_link, article_start_time, article_end_time, 
+      article_publish_time, article_click, article_sort, 
+      article_digest, article_commend_flag, article_comment_flag, 
+      article_verify_admin, article_verify_time, 
+      article_state, article_publisher_name, article_publisher_id, 
+      article_type, article_attachment_path, article_modify_time, 
+      article_tag, article_comment_count, article_attitude_1, 
+      article_attitude_2, article_attitude_3, article_attitude_4, 
+      article_attitude_5, article_attitude_6, article_title_short, 
+      article_attitude_flag, article_commend_image_flag, article_share_count, 
+      article_verify_reason, article_content, 
+      article_goods, article_image_all)
+    values (#{articleId,jdbcType=BIGINT}, #{articleTitle,jdbcType=VARCHAR}, #{articleClassId,jdbcType=BIGINT}, 
+      #{articleOrigin,jdbcType=VARCHAR}, #{articleOriginAddress,jdbcType=VARCHAR}, #{articleAuthor,jdbcType=VARCHAR}, 
+      #{articleAbstract,jdbcType=VARCHAR}, #{articleImage,jdbcType=VARCHAR}, #{articleKeyword,jdbcType=VARCHAR}, 
+      #{articleLink,jdbcType=VARCHAR}, #{articleStartTime,jdbcType=TIMESTAMP}, #{articleEndTime,jdbcType=TIMESTAMP}, 
+      #{articlePublishTime,jdbcType=TIMESTAMP}, #{articleClick,jdbcType=INTEGER}, #{articleSort,jdbcType=BIT}, 
+      #{articleDigest,jdbcType=BIT}, #{articleCommendFlag,jdbcType=BIT}, #{articleCommentFlag,jdbcType=BIT}, 
+      #{articleVerifyAdmin,jdbcType=VARCHAR}, #{articleVerifyTime,jdbcType=TIMESTAMP}, 
+      #{articleState,jdbcType=BIT}, #{articlePublisherName,jdbcType=VARCHAR}, #{articlePublisherId,jdbcType=BIGINT},
+      #{articleType,jdbcType=BIT}, #{articleAttachmentPath,jdbcType=VARCHAR}, #{articleModifyTime,jdbcType=TIMESTAMP}, 
+      #{articleTag,jdbcType=VARCHAR}, #{articleCommentCount,jdbcType=INTEGER}, #{articleAttitude1,jdbcType=INTEGER}, 
+      #{articleAttitude2,jdbcType=INTEGER}, #{articleAttitude3,jdbcType=INTEGER}, #{articleAttitude4,jdbcType=INTEGER}, 
+      #{articleAttitude5,jdbcType=INTEGER}, #{articleAttitude6,jdbcType=INTEGER}, #{articleTitleShort,jdbcType=VARCHAR}, 
+      #{articleAttitudeFlag,jdbcType=BIT}, #{articleCommendImageFlag,jdbcType=BIT}, #{articleShareCount,jdbcType=INTEGER}, 
+      #{articleVerifyReason,jdbcType=VARCHAR}, #{articleContent,jdbcType=LONGVARCHAR}, 
+      #{articleGoods,jdbcType=LONGVARCHAR}, #{articleImageAll,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.cms.pojo.CmsArticleWithBLOBs" >
+    insert into gs_cms_article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="articleTitle != null" >
+        article_title,
+      </if>
+      <if test="articleClassId != null" >
+        article_class_id,
+      </if>
+      <if test="articleOrigin != null" >
+        article_origin,
+      </if>
+      <if test="articleOriginAddress != null" >
+        article_origin_address,
+      </if>
+      <if test="articleAuthor != null" >
+        article_author,
+      </if>
+      <if test="articleAbstract != null" >
+        article_abstract,
+      </if>
+      <if test="articleImage != null" >
+        article_image,
+      </if>
+      <if test="articleKeyword != null" >
+        article_keyword,
+      </if>
+      <if test="articleLink != null" >
+        article_link,
+      </if>
+      <if test="articleStartTime != null" >
+        article_start_time,
+      </if>
+      <if test="articleEndTime != null" >
+        article_end_time,
+      </if>
+      <if test="articlePublishTime != null" >
+        article_publish_time,
+      </if>
+      <if test="articleClick != null" >
+        article_click,
+      </if>
+      <if test="articleSort != null" >
+        article_sort,
+      </if>
+      <if test="articleDigest != null" >
+        article_digest,
+      </if>
+      <if test="articleCommendFlag != null" >
+        article_commend_flag,
+      </if>
+      <if test="articleCommentFlag != null" >
+        article_comment_flag,
+      </if>
+      <if test="articleVerifyAdmin != null" >
+        article_verify_admin,
+      </if>
+      <if test="articleVerifyTime != null" >
+        article_verify_time,
+      </if>
+      <if test="articleState != null" >
+        article_state,
+      </if>
+      <if test="articlePublisherName != null" >
+        article_publisher_name,
+      </if>
+      <if test="articlePublisherId != null" >
+        article_publisher_id,
+      </if>
+      <if test="articleType != null" >
+        article_type,
+      </if>
+      <if test="articleAttachmentPath != null" >
+        article_attachment_path,
+      </if>
+      <if test="articleModifyTime != null" >
+        article_modify_time,
+      </if>
+      <if test="articleTag != null" >
+        article_tag,
+      </if>
+      <if test="articleCommentCount != null" >
+        article_comment_count,
+      </if>
+      <if test="articleAttitude1 != null" >
+        article_attitude_1,
+      </if>
+      <if test="articleAttitude2 != null" >
+        article_attitude_2,
+      </if>
+      <if test="articleAttitude3 != null" >
+        article_attitude_3,
+      </if>
+      <if test="articleAttitude4 != null" >
+        article_attitude_4,
+      </if>
+      <if test="articleAttitude5 != null" >
+        article_attitude_5,
+      </if>
+      <if test="articleAttitude6 != null" >
+        article_attitude_6,
+      </if>
+      <if test="articleTitleShort != null" >
+        article_title_short,
+      </if>
+      <if test="articleAttitudeFlag != null" >
+        article_attitude_flag,
+      </if>
+      <if test="articleCommendImageFlag != null" >
+        article_commend_image_flag,
+      </if>
+      <if test="articleShareCount != null" >
+        article_share_count,
+      </if>
+      <if test="articleVerifyReason != null" >
+        article_verify_reason,
+      </if>
+      <if test="articleContent != null" >
+        article_content,
+      </if>
+      <if test="articleGoods != null" >
+        article_goods,
+      </if>
+      <if test="articleImageAll != null" >
+        article_image_all,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="articleTitle != null" >
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleClassId != null" >
+        #{articleClassId,jdbcType=BIGINT},
+      </if>
+      <if test="articleOrigin != null" >
+        #{articleOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="articleOriginAddress != null" >
+        #{articleOriginAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAuthor != null" >
+        #{articleAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAbstract != null" >
+        #{articleAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="articleImage != null" >
+        #{articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="articleKeyword != null" >
+        #{articleKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="articleLink != null" >
+        #{articleLink,jdbcType=VARCHAR},
+      </if>
+      <if test="articleStartTime != null" >
+        #{articleStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleEndTime != null" >
+        #{articleEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articlePublishTime != null" >
+        #{articlePublishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleClick != null" >
+        #{articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="articleSort != null" >
+        #{articleSort,jdbcType=BIT},
+      </if>
+      <if test="articleDigest != null" >
+        #{articleDigest,jdbcType=BIT},
+      </if>
+      <if test="articleCommendFlag != null" >
+        #{articleCommendFlag,jdbcType=BIT},
+      </if>
+      <if test="articleCommentFlag != null" >
+        #{articleCommentFlag,jdbcType=BIT},
+      </if>
+      <if test="articleVerifyAdmin != null" >
+        #{articleVerifyAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="articleVerifyTime != null" >
+        #{articleVerifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleState != null" >
+        #{articleState,jdbcType=BIT},
+      </if>
+      <if test="articlePublisherName != null" >
+        #{articlePublisherName,jdbcType=VARCHAR},
+      </if>
+      <if test="articlePublisherId != null" >
+        #{articlePublisherId,jdbcType=BIGINT},
+      </if>
+      <if test="articleType != null" >
+        #{articleType,jdbcType=BIT},
+      </if>
+      <if test="articleAttachmentPath != null" >
+        #{articleAttachmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="articleModifyTime != null" >
+        #{articleModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleTag != null" >
+        #{articleTag,jdbcType=VARCHAR},
+      </if>
+      <if test="articleCommentCount != null" >
+        #{articleCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude1 != null" >
+        #{articleAttitude1,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude2 != null" >
+        #{articleAttitude2,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude3 != null" >
+        #{articleAttitude3,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude4 != null" >
+        #{articleAttitude4,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude5 != null" >
+        #{articleAttitude5,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude6 != null" >
+        #{articleAttitude6,jdbcType=INTEGER},
+      </if>
+      <if test="articleTitleShort != null" >
+        #{articleTitleShort,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAttitudeFlag != null" >
+        #{articleAttitudeFlag,jdbcType=BIT},
+      </if>
+      <if test="articleCommendImageFlag != null" >
+        #{articleCommendImageFlag,jdbcType=BIT},
+      </if>
+      <if test="articleShareCount != null" >
+        #{articleShareCount,jdbcType=INTEGER},
+      </if>
+      <if test="articleVerifyReason != null" >
+        #{articleVerifyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="articleContent != null" >
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleGoods != null" >
+        #{articleGoods,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleImageAll != null" >
+        #{articleImageAll,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.cms.pojo.CmsArticleWithBLOBs" >
+    update gs_cms_article
+    <set >
+      <if test="articleTitle != null" >
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleClassId != null" >
+        article_class_id = #{articleClassId,jdbcType=BIGINT},
+      </if>
+      <if test="articleOrigin != null" >
+        article_origin = #{articleOrigin,jdbcType=VARCHAR},
+      </if>
+      <if test="articleOriginAddress != null" >
+        article_origin_address = #{articleOriginAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAuthor != null" >
+        article_author = #{articleAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAbstract != null" >
+        article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      </if>
+      <if test="articleImage != null" >
+        article_image = #{articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="articleKeyword != null" >
+        article_keyword = #{articleKeyword,jdbcType=VARCHAR},
+      </if>
+      <if test="articleLink != null" >
+        article_link = #{articleLink,jdbcType=VARCHAR},
+      </if>
+      <if test="articleStartTime != null" >
+        article_start_time = #{articleStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleEndTime != null" >
+        article_end_time = #{articleEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articlePublishTime != null" >
+        article_publish_time = #{articlePublishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleClick != null" >
+        article_click = #{articleClick,jdbcType=INTEGER},
+      </if>
+      <if test="articleSort != null" >
+        article_sort = #{articleSort,jdbcType=BIT},
+      </if>
+      <if test="articleDigest != null" >
+        article_digest = #{articleDigest,jdbcType=BIT},
+      </if>
+      <if test="articleCommendFlag != null" >
+        article_commend_flag = #{articleCommendFlag,jdbcType=BIT},
+      </if>
+      <if test="articleCommentFlag != null" >
+        article_comment_flag = #{articleCommentFlag,jdbcType=BIT},
+      </if>
+      <if test="articleVerifyAdmin != null" >
+        article_verify_admin = #{articleVerifyAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="articleVerifyTime != null" >
+        article_verify_time = #{articleVerifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleState != null" >
+        article_state = #{articleState,jdbcType=BIT},
+      </if>
+      <if test="articlePublisherName != null" >
+        article_publisher_name = #{articlePublisherName,jdbcType=VARCHAR},
+      </if>
+      <if test="articlePublisherId != null" >
+        article_publisher_id = #{articlePublisherId,jdbcType=BIGINT},
+      </if>
+      <if test="articleType != null" >
+        article_type = #{articleType,jdbcType=BIT},
+      </if>
+      <if test="articleAttachmentPath != null" >
+        article_attachment_path = #{articleAttachmentPath,jdbcType=VARCHAR},
+      </if>
+      <if test="articleModifyTime != null" >
+        article_modify_time = #{articleModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="articleTag != null" >
+        article_tag = #{articleTag,jdbcType=VARCHAR},
+      </if>
+      <if test="articleCommentCount != null" >
+        article_comment_count = #{articleCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude1 != null" >
+        article_attitude_1 = #{articleAttitude1,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude2 != null" >
+        article_attitude_2 = #{articleAttitude2,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude3 != null" >
+        article_attitude_3 = #{articleAttitude3,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude4 != null" >
+        article_attitude_4 = #{articleAttitude4,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude5 != null" >
+        article_attitude_5 = #{articleAttitude5,jdbcType=INTEGER},
+      </if>
+      <if test="articleAttitude6 != null" >
+        article_attitude_6 = #{articleAttitude6,jdbcType=INTEGER},
+      </if>
+      <if test="articleTitleShort != null" >
+        article_title_short = #{articleTitleShort,jdbcType=VARCHAR},
+      </if>
+      <if test="articleAttitudeFlag != null" >
+        article_attitude_flag = #{articleAttitudeFlag,jdbcType=BIT},
+      </if>
+      <if test="articleCommendImageFlag != null" >
+        article_commend_image_flag = #{articleCommendImageFlag,jdbcType=BIT},
+      </if>
+      <if test="articleShareCount != null" >
+        article_share_count = #{articleShareCount,jdbcType=INTEGER},
+      </if>
+      <if test="articleVerifyReason != null" >
+        article_verify_reason = #{articleVerifyReason,jdbcType=VARCHAR},
+      </if>
+      <if test="articleContent != null" >
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleGoods != null" >
+        article_goods = #{articleGoods,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="articleImageAll != null" >
+        article_image_all = #{articleImageAll,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.goshop.cms.pojo.CmsArticleWithBLOBs" >
+    update gs_cms_article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_class_id = #{articleClassId,jdbcType=BIGINT},
+      article_origin = #{articleOrigin,jdbcType=VARCHAR},
+      article_origin_address = #{articleOriginAddress,jdbcType=VARCHAR},
+      article_author = #{articleAuthor,jdbcType=VARCHAR},
+      article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      article_image = #{articleImage,jdbcType=VARCHAR},
+      article_keyword = #{articleKeyword,jdbcType=VARCHAR},
+      article_link = #{articleLink,jdbcType=VARCHAR},
+      article_start_time = #{articleStartTime,jdbcType=TIMESTAMP},
+      article_end_time = #{articleEndTime,jdbcType=TIMESTAMP},
+      article_publish_time = #{articlePublishTime,jdbcType=TIMESTAMP},
+      article_click = #{articleClick,jdbcType=INTEGER},
+      article_sort = #{articleSort,jdbcType=BIT},
+      article_digest = #{articleDigest,jdbcType=BIT},
+      article_commend_flag = #{articleCommendFlag,jdbcType=BIT},
+      article_comment_flag = #{articleCommentFlag,jdbcType=BIT},
+      article_verify_admin = #{articleVerifyAdmin,jdbcType=VARCHAR},
+      article_verify_time = #{articleVerifyTime,jdbcType=TIMESTAMP},
+      article_state = #{articleState,jdbcType=BIT},
+      article_publisher_name = #{articlePublisherName,jdbcType=VARCHAR},
+      article_publisher_id = #{articlePublisherId,jdbcType=BIGINT},
+      article_type = #{articleType,jdbcType=BIT},
+      article_attachment_path = #{articleAttachmentPath,jdbcType=VARCHAR},
+      article_modify_time = #{articleModifyTime,jdbcType=TIMESTAMP},
+      article_tag = #{articleTag,jdbcType=VARCHAR},
+      article_comment_count = #{articleCommentCount,jdbcType=INTEGER},
+      article_attitude_1 = #{articleAttitude1,jdbcType=INTEGER},
+      article_attitude_2 = #{articleAttitude2,jdbcType=INTEGER},
+      article_attitude_3 = #{articleAttitude3,jdbcType=INTEGER},
+      article_attitude_4 = #{articleAttitude4,jdbcType=INTEGER},
+      article_attitude_5 = #{articleAttitude5,jdbcType=INTEGER},
+      article_attitude_6 = #{articleAttitude6,jdbcType=INTEGER},
+      article_title_short = #{articleTitleShort,jdbcType=VARCHAR},
+      article_attitude_flag = #{articleAttitudeFlag,jdbcType=BIT},
+      article_commend_image_flag = #{articleCommendImageFlag,jdbcType=BIT},
+      article_share_count = #{articleShareCount,jdbcType=INTEGER},
+      article_verify_reason = #{articleVerifyReason,jdbcType=VARCHAR},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      article_goods = #{articleGoods,jdbcType=LONGVARCHAR},
+      article_image_all = #{articleImageAll,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.cms.pojo.CmsArticle" >
+    update gs_cms_article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_class_id = #{articleClassId,jdbcType=BIGINT},
+      article_origin = #{articleOrigin,jdbcType=VARCHAR},
+      article_origin_address = #{articleOriginAddress,jdbcType=VARCHAR},
+      article_author = #{articleAuthor,jdbcType=VARCHAR},
+      article_abstract = #{articleAbstract,jdbcType=VARCHAR},
+      article_image = #{articleImage,jdbcType=VARCHAR},
+      article_keyword = #{articleKeyword,jdbcType=VARCHAR},
+      article_link = #{articleLink,jdbcType=VARCHAR},
+      article_start_time = #{articleStartTime,jdbcType=TIMESTAMP},
+      article_end_time = #{articleEndTime,jdbcType=TIMESTAMP},
+      article_publish_time = #{articlePublishTime,jdbcType=TIMESTAMP},
+      article_click = #{articleClick,jdbcType=INTEGER},
+      article_sort = #{articleSort,jdbcType=BIT},
+      article_digest = #{articleDigest,jdbcType=BIT},
+      article_commend_flag = #{articleCommendFlag,jdbcType=BIT},
+      article_comment_flag = #{articleCommentFlag,jdbcType=BIT},
+      article_verify_admin = #{articleVerifyAdmin,jdbcType=VARCHAR},
+      article_verify_time = #{articleVerifyTime,jdbcType=TIMESTAMP},
+      article_state = #{articleState,jdbcType=BIT},
+      article_publisher_name = #{articlePublisherName,jdbcType=VARCHAR},
+      article_publisher_id = #{articlePublisherId,jdbcType=BIGINT},
+      article_type = #{articleType,jdbcType=BIT},
+      article_attachment_path = #{articleAttachmentPath,jdbcType=VARCHAR},
+      article_modify_time = #{articleModifyTime,jdbcType=TIMESTAMP},
+      article_tag = #{articleTag,jdbcType=VARCHAR},
+      article_comment_count = #{articleCommentCount,jdbcType=INTEGER},
+      article_attitude_1 = #{articleAttitude1,jdbcType=INTEGER},
+      article_attitude_2 = #{articleAttitude2,jdbcType=INTEGER},
+      article_attitude_3 = #{articleAttitude3,jdbcType=INTEGER},
+      article_attitude_4 = #{articleAttitude4,jdbcType=INTEGER},
+      article_attitude_5 = #{articleAttitude5,jdbcType=INTEGER},
+      article_attitude_6 = #{articleAttitude6,jdbcType=INTEGER},
+      article_title_short = #{articleTitleShort,jdbcType=VARCHAR},
+      article_attitude_flag = #{articleAttitudeFlag,jdbcType=BIT},
+      article_commend_image_flag = #{articleCommendImageFlag,jdbcType=BIT},
+      article_share_count = #{articleShareCount,jdbcType=INTEGER},
+      article_verify_reason = #{articleVerifyReason,jdbcType=VARCHAR}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <select id="findBaseByArticleState" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from gs_cms_article
+    where article_state = #{articleState,jdbcType=BIGINT}
+  </select>
+
+  <update id="updateByArticleCommendFlag" >
+    update gs_cms_article
+    set article_commend_flag = #{articleCommendFlag,jdbcType=BIT}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByArticleCommendImageFlag" >
+    update gs_cms_article
+    set article_commend_image_flag = #{articleCommendImageFlag,jdbcType=BIT}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByArticleAttitudeFlag" >
+    update gs_cms_article
+    set article_attitude_flag = #{articleAttitudeFlag,jdbcType=BIT}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByArticleCommentFlag" >
+    update gs_cms_article
+    set article_comment_flag = #{articleCommentFlag,jdbcType=BIT}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByArticleSort" >
+    update gs_cms_article
+    set article_sort = #{articleSort,jdbcType=BIT}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByArticleClick" >
+    update gs_cms_article
+    set article_click = #{articleClick,jdbcType=BIT}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+
+  <select id="query" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from gs_cms_article
+    where article_state = #{articleState,jdbcType=BIGINT}
+    <if test="articleTitle != null  and articleTitle !='' " >
+      and article_title  like CONCAT('%',#{articleTitle},'%')
+    </if>
+    <if test="articlePublisherName != null  and articlePublisherName !='' " >
+      and article_publisher_name  like CONCAT('%',#{articlePublisherName},'%')
+    </if>
+  </select>
+</mapper>

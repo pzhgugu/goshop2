@@ -10,14 +10,14 @@
 
 	<!-- 加载配置文件 -->
 	<context:property-placeholder  ignore-resource-not-found="true"
-								   location="classpath:jedis.properties,classpath:resource/*.properties,
+								   location="classpath:common.properties,classpath:resource/*.properties,
                                   file:/usr/jar_home/users/resource/*.properties" />
 	<!-- 扫描包加载Service实现类 -->
 	<context:component-scan base-package="org.goshop.*.service" />
 
 	<import resource="classpath:spring/applicationContext-dao.xml" />
 	<import resource="classpath:spring/applicationContext-jedis.xml" />
-	<import resource="classpath:spring/applicationContext-dubbo.xml" />
+	<import resource="classpath:spring/applicationContext-dubbo-provider.xml" />
 	<import resource="classpath:spring/applicationContext-shiro.xml" />
 
 </beans>

@@ -5,15 +5,16 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="goshop-facade-users" />
     <orderEntry type="module" module-name="goshop-common" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
     <orderEntry type="module" module-name="goshop-common-config" />
     <orderEntry type="module" module-name="goshop-common-service" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" level="project" />
@@ -23,12 +24,12 @@
     <orderEntry type="module" module-name="goshop-common-web" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.bingoohuang:patchca:0.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:17.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.csource:fastdfs-client-java:1.25" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />

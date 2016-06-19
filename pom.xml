@@ -14,8 +14,10 @@
         <module>goshop-common-web</module>
         <module>goshop-facade-users</module>
         <module>goshop-service-users</module>
-        <module>goshop-web-manage</module>
         <module>goshop-common-shiro</module>
+        <module>goshop-facade-cms</module>
+        <module>goshop-service-cms</module>
+        <module>goshop-web-manager</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -102,6 +104,18 @@
             <dependency>
                 <groupId>org.goshop</groupId>
                 <artifactId>goshop-service-users</artifactId>
+                <version>${goshop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.goshop</groupId>
+                <artifactId>goshop-facade-cms</artifactId>
+                <version>${goshop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.goshop</groupId>
+                <artifactId>goshop-service-cms</artifactId>
                 <version>${goshop.version}</version>
             </dependency>
             <!-- 邮件发送 -->

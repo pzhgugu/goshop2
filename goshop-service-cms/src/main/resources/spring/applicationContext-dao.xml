@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- 主表数据库连接池 -->
+	<bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource"  init-method="init"
+		  destroy-method="close">
+		<property name="url" value="${master.jdbc.url}" />
+		<property name="username" value="${master.jdbc.username}" />
+		<property name="password" value="${master.jdbc.password}" />
+		<property name="driverClassName" value="${master.jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+
+	<!-- 配置扫描包，加载mapper代理对象 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="org.goshop.*.mapper.master"></property>
+		<property name="sqlSessionFactoryBeanName" value="masterSqlSessionFactory" />
+	</bean>
+	<!-- 配置sqlsessionFactory -->
+	<bean id="masterSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+		<property name="dataSource" ref="masterDataSource"></property>
+	</bean>
+
+
+	<!-- 事务管理器 -->
+	<bean id="transactionManager"
+		  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 数据源 -->
+		<property name="dataSource" ref="masterDataSource" />
+	</bean>
+	<!-- 通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 传播行为 -->
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="insert*" propagation="REQUIRED" />
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="select*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 切面 -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice"
+					 pointcut="execution(* org.goshop.*.service.*.*(..))" />
+	</aop:config>
+
+	<!-- 从表数据库连接池 -->
+	<bean id="readDataSource" class="com.alibaba.druid.pool.DruidDataSource"  init-method="init"
+		  destroy-method="close">
+		<property name="url" value="${read.jdbc.url}" />
+		<property name="username" value="${read.jdbc.username}" />
+		<property name="password" value="${read.jdbc.password}" />
+		<property name="driverClassName" value="${read.jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<!-- 配置扫描包，加载mapper代理对象 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="org.goshop.*.mapper.read"></property>
+		<property name="sqlSessionFactoryBeanName" value="readSqlSessionFactory" />
+	</bean>
+	<!--配置sqlsessionFactory-->
+	<bean id="readSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+		<property name="dataSource" ref="readDataSource"></property>
+	</bean>
+
+</beans>
