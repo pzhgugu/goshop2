@@ -1,5 +1,6 @@
 package org.goshop.common.context;
 
+import com.alibaba.dubbo.rpc.RpcException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.goshop.common.exception.AjaxException;
@@ -34,7 +35,11 @@ public class ExceptionHandler implements HandlerExceptionResolver {
 			HttpServletResponse response, Object handler, Exception ex) {
 		//控制台打印错误
 		ex.printStackTrace();
-		if (ex instanceof GoShopException ||ex instanceof IllegalArgumentException) {
+		if (ex instanceof GoShopException ||ex instanceof IllegalArgumentException||ex instanceof RpcException) {
+			String exMessage=ex.getMessage();
+			if(ex instanceof RpcException){
+				exMessage="远程调用失败，请联系管理员。";
+			}
 			if ("XMLHttpRequest".equalsIgnoreCase(request
 					.getHeader("X-Requested-With"))||ex instanceof AjaxException) {// 不是ajax请求
 				response.setCharacterEncoding("UTF-8");
@@ -44,11 +49,12 @@ public class ExceptionHandler implements HandlerExceptionResolver {
 				if (request.getParameterMap().containsKey("format")) {
 					type = request.getParameter("format");
 				}
+
 				if (type.equals("xml")) {
 					ErrorData error =new ErrorData();
 					ErrorMessage message = new ErrorMessage();
 					message.setCode(-1);
-					message.setMessage(ex.getMessage());
+					message.setMessage(exMessage);
 					error.getAction().add(message);
 					try {
 						JAXBContext context = JAXBContext
@@ -69,7 +75,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
 				} else {
 					ErrorMessage message = new ErrorMessage();
 					message.setCode(-1);
-					message.setMessage(ex.getMessage());
+					message.setMessage(exMessage);
 					ObjectMapper objectMapper = new ObjectMapper();
 
 					try {
@@ -91,7 +97,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
 
 			} else {
 				MessageInfo info = new MessageInfo();
-				info.setMessage(ex.getMessage());
+				info.setMessage(exMessage);
 
 				messageService.set(request.getSession().getId(),info);
 				ModelAndView mav=new ModelAndView();

@@ -26,7 +26,9 @@ public class MessageController {
         }else {
             MessageInfo m = messageService.get(request.getSession().getId());
             model.addAttribute("P_MESSAGE", m.getMessage());
-            model.addAttribute("P_RETURN_URL", m.getReturnUrl());
+            if(StringUtils.hasText( m.getReturnUrl())) {
+                model.addAttribute("P_RETURN_URL", m.getReturnUrl());
+            }
         }
         if(StringUtils.hasText(returnUrl)) {
             model.addAttribute("P_RETURN_URL", returnUrl);

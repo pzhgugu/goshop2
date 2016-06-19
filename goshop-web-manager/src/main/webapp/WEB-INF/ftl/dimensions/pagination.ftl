@@ -1,4 +1,4 @@
-<#assign requestUtils= "com.goshop.common.tag.RequestTag"?new()>
+<#assign requestUtils= "org.goshop.common.tag.RequestTag"?new()>
 <#macro page pageInfo pageNumName>
 <#assign url= requestUtils(Request,pageNumName) />
 

@@ -24,8 +24,11 @@
             <td class="tip2">若不选择将自动跳转</td>
         </tr>
         <tr>
-            <td>          <a href="${P_RETURN_URL}" class="btns"><span>返回上一页</span></a>
+            <td>
+                <#if P_RETURN_URL??>
+                <a href="${P_RETURN_URL}" class="btns"><span>返回上一页</span></a>
                 <script type="text/javascript"> window.setTimeout("javascript:location.href='${P_RETURN_URL}'", 2000); </script>
+                </#if>
             </td>
         </tr>
         </tbody>
