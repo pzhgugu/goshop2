@@ -101,7 +101,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
 
 				messageService.set(request.getSession().getId(),info);
 				ModelAndView mav=new ModelAndView();
-				mav.setViewName("redirect:/msg");
+				mav.setViewName("forward:/msg");
 				return mav;
 			}
 
