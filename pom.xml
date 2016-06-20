@@ -18,6 +18,8 @@
         <module>goshop-facade-cms</module>
         <module>goshop-service-cms</module>
         <module>goshop-web-manager</module>
+        <module>goshop-web-cms</module>
+        <module>goshop-web-wechat</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -42,6 +44,7 @@
         <jsp-api.version>2.0</jsp-api.version>
         <joda-time.version>2.5</joda-time.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
+        <commons-lang.version>2.6</commons-lang.version>
         <commons-io.version>1.3.2</commons-io.version>
         <commons-net.version>3.3</commons-net.version>
         <pagehelper.version>3.4.2-fix</pagehelper.version>
@@ -163,6 +166,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -379,6 +387,25 @@
                 <artifactId>hamcrest-all</artifactId>
                 <version>1.3</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>1.2.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.json-lib</groupId>
+                <artifactId>json-lib</artifactId>
+                <version>2.4</version>
+                <classifier>jdk15</classifier>
             </dependency>
         </dependencies>
     </dependencyManagement>

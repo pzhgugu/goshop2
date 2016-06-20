@@ -1,0 +1,36 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+-->
+<ion-tabs class="tabs-icon-top tabs-stable tabs-color-assertive {{hideTabs}}">
+
+
+    <ion-tab title="新闻"  icon-off="ion-ios-home-outline" icon-on="ion-home" href="#/tab/news">
+        <ion-nav-view name="news-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="视听" icon-off="ion-ios-film-outline" icon-on="ion-ios-film" href="#/tab/video">
+        <ion-nav-view name="video-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="社会"  icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/world">
+        <ion-nav-view name="world-tab"></ion-nav-view>
+    </ion-tab>
+
+<!--ion-ios-browsers-outline-->
+    <ion-tab title="专栏"  icon-off="ion-ios-list-outline" icon-on="ion-ios-list" href="#/tab/zhuanlan">
+        <ion-nav-view name="zhuanlan-tab"></ion-nav-view>
+    </ion-tab>
+
+
+    <ion-tab title="人人拍"  icon-off="ion-ios-reverse-camera" icon-on="ion-ios-reverse-camera" href="#/tab/rr">
+        <ion-nav-view name="rr-tab"></ion-nav-view>
+    </ion-tab>
+
+
+
+
+</ion-tabs>

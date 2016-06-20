@@ -1,0 +1,65 @@
+<div class="modal">
+  <ion-header-bar class="bar-assertive">
+      <h1 class="title">栏目定制</h1>
+      <div class="buttons">
+          <i class="icon ion-ios-close-empty" ng-click="closeCategoryModal()" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-size: 34px;" />
+      </div>
+  </ion-header-bar>
+  <ion-content class="category-content">
+
+        <div class="category_title">
+           <button class="button button-assertive" ng-if="is_close"  style="float: right" ng-click="cateNoDelete()">完成</button>
+            <button class="button button-assertive"   ng-if="!is_close"  style="float: right" ng-click="cateDeleteAll()">编辑</button>
+            我的栏目
+
+            <span ng-if="is_close">(您可以删除和移动栏目)</span>
+            <span ng-if="!is_close">(点击切换栏目)</span>
+        </div>
+        <div class="category_list">
+
+            <ion-list ng-class="{'ion_list_rorder': is_close,'ion_list_no_rorder':!is_close}"  show-reorder="showReorder"  show-delete="showReorder" on-hold="cateDeleteAll()">
+
+                <div ng-if="!is_close">
+                    <ion-item ng-repeat="(key,cate) in categoryListMyData"  on-tap="cateChangeTab(cate.id,key)">
+                        {{cate.name}}
+
+                        <ion-delete-button class="ion-minus-circled" ></ion-delete-button>
+                        <ion-reorder-button class="ion-navicon" on-reorder="move_item(item,$fromIndex,$toIndex)"></ion-reorder-button>
+                    </ion-item>
+                </div>
+
+                <div ng-if="is_close">
+
+                    <ion-item ng-repeat="(key,cate) in categoryListMyData" ng-if="key==0">
+                        {{cate.name}}
+                    </ion-item>
+
+
+                    <ion-item ng-repeat="(key,cate) in categoryListMyData" ng-if="key>0">
+                        {{cate.name}}
+                        <ion-delete-button  class="ion-minus-circled" on-tap="cateChangeTab(cate.id,key,cate.name)"></ion-delete-button>
+                        <ion-reorder-button class="ion-navicon" on-reorder="move_item(cate,$fromIndex,$toIndex)"></ion-reorder-button>
+                    </ion-item>
+                </div>
+            </ion-list>
+        </div>
+
+
+
+          <div ng-if="!is_close" class="category_title">
+            更多栏目(点击下面栏目添加到我的栏目)
+          </div>
+          <div ng-if="!is_close" class="category_list">
+              <ul>
+                  <li ng-repeat="(key,cate) in categoryListOtherData"  on-tap="addMyTab(cate.id,key,cate.name)">
+
+                      <a href="javascript:void(0);">{{cate.name}}</a>
+
+                  </li>
+              </ul>
+
+          </div>
+
+
+  </ion-content>
+</div>

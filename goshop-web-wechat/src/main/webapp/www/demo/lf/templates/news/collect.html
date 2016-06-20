@@ -1,0 +1,23 @@
+<ion-view hide-tabs title="我的收藏">
+    <ion-content>
+        <div ng-if="showloading" style="margin-top:60px; text-align: center">
+
+            <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+        </div>
+        <ion-list class="topics_list" ng-if="showloading==false">
+
+            <ion-item class="item-thumbnail-left" collection-repeat="topic in listData" href="#/tab/news_content/{{topic.id}}"
+                      collection-item-width="100%" collection-item-height="88px">
+                <img ng-if="topic.img" ng-src="{{ENV.imgUrl}}{{topic.img}}">
+                <img ng-if="!topic.img" ng-src="img/ionic.png">
+                <h2>{{topic.article_title}}</h2>
+                <p class="summary">
+                </p>
+            </ion-item>
+
+
+        </ion-list>
+    </ion-content>
+
+
+</ion-view>

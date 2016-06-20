@@ -1,0 +1,32 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+-->
+<ion-tabs class="tabs-icon-top tabs-stable tabs-color-assertive {{hideTabs}}">
+
+
+    <!-- new Tab -->
+    <ion-tab title="新闻" icon-off="ion-ios-eye-outline" icon-on="ion-ios-eye assertive" href="#/tab/new">
+        <ion-nav-view name="tab-new"></ion-nav-view>
+    </ion-tab>
+
+    <!-- hot Tab -->
+    <ion-tab title="热点" icon-off="ion-ios-sunny-outline" icon-on="ion-ios-sunny assertive" href="#/tab/hot">
+        <ion-nav-view name="tab-hot"></ion-nav-view>
+    </ion-tab>
+
+    <!-- audio Tab -->
+    <ion-tab title="视听" icon-off="ion-ios-play-outline" icon-on="ion-ios-play assertive" href="#/tab/audio">
+        <ion-nav-view name="tab-audio"></ion-nav-view>
+    </ion-tab>
+
+    <!-- user Tab -->
+    <ion-tab title="我" icon-off="ion-ios-person-outline" icon-on="ion-ios-person assertive" href="#/tab/user">
+        <ion-nav-view name="tab-user"></ion-nav-view>
+    </ion-tab>
+
+
+</ion-tabs>

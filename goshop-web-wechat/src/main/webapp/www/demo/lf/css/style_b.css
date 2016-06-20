@@ -1,0 +1,666 @@
+/* Empty. Add your own CSS if you like */
+
+/*basic*/
+
+
+
+.hot_title{
+    padding: 5px 8px;
+    font-size: 14px;
+    color: #666;
+    margin:5px 0px 5px 5px;
+}
+.hot_title span{
+
+    font-size: 8px;
+    border-left: 3px solid red;
+    margin-right: 4px;
+}
+
+.news_list{
+    padding:-10px;
+}
+
+
+
+
+/*home-slide*/
+.home-slide ion-slide{
+    text-align: center;
+    height: 150px;
+    width: 100%;
+}
+.home-slide ion-slide img{
+    height: auto;
+    width: 100%;
+}
+.slider-pager{
+    bottom: 5px;
+}
+.slider-pager .slider-pager-page{
+    font-size: 8px;
+}
+
+
+/*first_list*/
+
+.first-list .col{
+
+    height:85px;
+    text-align:center;
+    line-height:32px;
+}
+.first-list .col.light div{
+    text-align:left;
+}
+.first-list .col .icon{
+    font-size:32px;
+}
+
+/*修改默认tab的颜色*/
+.tabs-color-assertive .tab-item {
+    color:#999;
+    opacity: 1; }
+
+.tabs-color-positive .tab-item .badge {
+    opacity: 0.8; }
+
+
+
+
+
+/*
+列表
+*/
+
+.topics_list .list{
+    padding-top:0px;
+}
+
+.topics_list .item h2{
+
+    white-space: normal;
+    line-height: 180%;
+}
+
+
+.item-thumbnail-left, .item-thumbnail-left .item-content{
+    padding-left: 84px;
+    padding-top:12px;
+}
+
+.item-thumbnail-left, .item-thumbnail-left .item-content img{
+
+    margin-top:4px;
+}
+.item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image{
+
+    width: 60px;
+    height: 60px;
+}
+
+/*二级菜单*/
+.bar .sub_header_list .button.button-clear{
+
+    border-bottom: 1px solid #eee;
+}
+.sub_header_list{
+    width: 220%;
+
+}
+.sub_header_list .button{
+    width: 25%;
+    color:#666;
+}
+.bar .sub_header_list .button.sub_button_select{
+    border-bottom:2px solid #ef473a;
+    position:relative;
+}
+.bar-subheader{
+    border-bottom: none;
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    padding-top:2px;
+    padding-bottom: 2px;
+    padding-right: 34px;
+
+
+}
+
+
+.bar-subheader .button:after{
+
+height: 34px;
+}
+
+ .bar .button.button-clear{
+    font-size: 14px;
+}
+
+
+.has-subheader{
+
+    top: 82px;
+}
+
+.subheader_r_icon{
+    position: absolute;
+    right: 0px;
+    width: 34px;
+    height: 36px;
+    line-height: 38px;
+    top: 0px;
+    text-align: center;
+    background: #fff;
+    color:#666;
+}
+
+
+
+
+/*文章内容*/
+.article_content{
+
+}
+.article_content img{
+    max-width: 80%;
+
+}
+
+.s_24{
+    font-size: 24px;
+
+}
+.s_24 *{
+    font-size: 24px;
+    line-height: 180%;
+
+}
+.s_20{
+    font-size: 18px;
+
+}
+.s_20 *{
+    font-size: 18px;
+    line-height: 180%;
+
+}
+.s_16{
+    font-size: 16px;
+
+
+}
+.s_16 *{
+    font-size: 16px;
+    line-height: 180%;
+
+}
+.s_14{
+    font-size: 14px;
+  }
+.s_14 *{
+    font-size: 14px;
+    line-height: 180%;
+}
+
+
+
+.bar-light .button.button-icon{
+
+    font-size: 14px;
+    color:#666;
+}
+/*setting*/
+
+
+.setting .avatar {
+    width: 50px;
+    border-radius: 10px;
+    vertical-align: middle; }
+.setting .login {
+    text-align: center;
+    /* background-color: #4EB554; */ }
+
+
+/*帖子评论*/
+
+
+
+.topic-content img {
+    max-width: 100%;
+}
+
+.topic a,.replies a{
+
+    text-decoration: none;
+}
+.topic .title {
+    margin: 0; }
+.topic .summary {
+    margin: 8px 0; }
+.topic .avatar {
+    width: 16px;
+    border-radius: 8px;
+    vertical-align: middle; }
+
+.replies .item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    white-space: normal; }
+.replies .reply-content img {
+    max-width: 100%; }
+.replies .reply-content p {
+    overflow: visible !important;
+    white-space: normal !important; }
+
+.topic-create .topic-tabs {
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 0; }
+
+.reply-new input {
+    background: transparent; }
+
+
+.item-input-wrapper input{
+    width: 100%;
+}
+
+
+/*video*/
+.video_content .item-image img{
+    width:100%;
+    height: 160px;
+}
+.video_content a{
+    text-decoration: none;
+}
+.item_icon .item_icon_inline{
+    display:inline-block;
+    float: left;
+    padding-right: 5px;
+    padding-left: 5px;
+    height:30px;
+    line-height: 30px;
+
+
+}
+.item_icon .item_icon_inline .icon{
+    float: left;
+    padding-right:5px;
+
+}
+.item_icon .item_right{
+    float: right;
+}
+.video_title{
+    padding:5px;
+}
+.video_title h2{
+    font-size: 18px;
+    color: #000;
+}
+.video_title p{
+    font-size: 12px;
+    color: #666;
+}
+
+.video_info{
+    font-size: 14px;
+    padding:5px;
+}
+.video_info p{
+    font-size: 14px;
+    color: #666;
+}
+
+/*首页弹窗*/
+
+.popover_content_weather{
+    width: 100%;
+    height: 160px;
+
+}
+
+.popover_content_weather .temp_left{
+    float: left;
+    height: 140px;
+    padding-left: 10px;
+}
+
+
+.popover_content_weather .temp_left .t_large{
+   font-size: 80px;
+    color: red;
+    position: relative;
+    display: inline-block;
+    height: 140px;
+    width: 108px;
+    float: left;
+    padding-top:26px;
+
+}
+
+.popover_content_weather .temp_left .t_large span
+{
+    height: 140px;
+    line-height: 100%;
+}
+
+.popover_content_weather .temp_left .t_large .t_d{
+
+    position: absolute;
+    font-size: 20px;
+    top: 20px;
+    display: inline-block;
+    float: left;
+}
+.popover_content_weather .temp_left .t_small{
+    font-size: 20px;
+    color: #000;
+    display: inline-block;
+    float: left;
+    padding-left: 4px;
+    position: relative;
+
+    height: 100px;
+    width: 88px;
+
+}
+.popover_content_weather .temp_left .t_small .t_small_c{
+    position: absolute;
+    bottom: 0px;
+}
+
+
+.popover_content_weather .temp_right{
+    float: right;
+    padding-right: 10px;
+    padding-top:6px;
+    line-height: 140%;
+}
+
+
+.popover_content_weather .t_img img{
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.popover_content_weather .t_weather{
+
+    font-size: 20px;
+    color: #000;
+}
+
+.popover_content_tab .row{
+    height:120px;
+margin-top:5px;
+}
+.popover_content_tab .row .col{
+    height: 80px;
+    text-align:  center;
+
+}
+.popover_content_tab .row .col div{
+    text-align:  center;
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    border-radius: 80px;
+    margin: 0 auto;
+}
+.popover_content_tab a{
+    text-decoration: none;
+}
+
+/*搜索页面*/
+.articel_search{
+    padding: 10px;
+    position: relative;
+}
+.articel_search input{
+    border:1px solid #eee;
+    width: 100%;
+    text-indent: 10px;
+}
+.articel_search i{
+    position: absolute;
+    right: 6px;
+    top:10px;
+    width: 40px;
+    line-height: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+
+}
+.articel_search_r_t{
+    padding: 5px;
+    margin-top:18px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+    padding-left: 10px;
+
+}
+
+
+/*视频页面*/
+.video_top{
+    position: relative;
+}
+.video_top .video_img img{
+    width:100%;
+    height: 200px;
+}
+
+.video_top .video_play{
+
+    height: 40px;
+    left:45%;
+    position: absolute;
+    top: 85px;
+    width: 40px;
+}
+
+.video_top .video_header{
+    position: absolute;
+    top: 0px;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+}
+
+.video_top .video_header .a-l{
+    float: left;
+    color: #fff;
+    font-size: 17px;
+    padding-left:8px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+.video_top .video_header .a-r{
+    float: right;
+    color: #fff;
+    font-size: 17px;
+    padding-right:8px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+/*新闻分类页面*/
+
+
+.category-content .category_title{
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #666;
+
+    padding-left: 3.4%;
+    padding-right: 3.4%;
+    background: #eee;
+
+
+}
+.category-content .category_list ul li{
+    height: 36px;
+    line-height: 36px;
+    border-color: #b2b2b2;
+    background-color: #f8f8f8;
+    color: #444;
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    cursor: pointer;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3.4%;
+    position: relative;
+}
+.category-content .category_list ul li a{
+    text-decoration:none;
+    color: #444;
+}
+
+
+.category-content .category_list ul li .close{
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    border-radius: 12px;
+    color: #fff;
+    background: #222222;
+    font-size: 12px;
+
+}
+/*新闻详情页面*/
+.content_title{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+
+}
+.content_title span{
+    font-size: 12px;
+    color: #999;
+}
+
+
+/*文章详情css*/
+
+/*
+
+.article{ width:100%; height:100%;  transition: 0s all;}
+
+.article.ng-enter{
+    opacity: 1;
+}
+.article.ng-enter-active{
+    opacity: 1;
+}
+.article.ng-leave{
+    opacity: 0;
+}
+.article.ng-leave-active{
+    opacity: 0;
+}
+*/
+
+.font-a{
+    font-size: 30px;
+    font-weight: bold;
+    padding-right: 4px;
+    position: relative;
+    top: -2px;
+}
+
+/*夜间模式*/
+.night{
+
+    background: #222222;
+    color: #fff;
+
+}
+.night ion-header-bar{
+
+    background: #222222;
+    color: #fff;
+
+}
+.night ion-content{
+
+    background: #222222;
+    color: #fff;
+
+
+}
+.night ion-content ion-item{
+
+    background: #222222;
+    color: #fff;
+
+}
+.night ion-content .item-thumbnail-left, .night .item-thumbnail-left .item-content{
+    background: #222222;
+    color: #fff;
+
+
+}
+.night ion-content .item-thumbnail-left,.night  .item-thumbnail-left .item-content h2{
+    color: #fff;
+    background: #222222;
+}
+
+.night ion-content *{
+    color: #fff;
+    background: #222222;
+
+}
+.night .bar.bar-subheader{
+    background: #222222;
+    color: #fff;
+
+}
+.night .bar.bar-subheader *{
+    background: #222222;
+    color: #fff;
+
+}
+
+.night .tabs{
+    background: #222222;
+    color: #fff;
+}
+.night .tabs *{
+    background: #222222;
+    color: #fff;
+}
+
+.night .item{
+
+    border-color: #000;
+}
+
+.night .slider-pager{
+    background: none;
+
+}
+
+.close{
+
+
+}

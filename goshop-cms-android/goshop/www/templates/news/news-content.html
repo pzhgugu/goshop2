@@ -1,0 +1,24 @@
+<ion-view hide-tabs title="文章详情">
+    <ion-nav-bar align-title="center"  class=""bar-stable">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content padding="true" on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+
+        <div ng-if="showloading" style="margin-top:60px; text-align: center">
+
+            <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+        </div>
+
+        <div  ng-if="showloading==false" class="article">  <!--文章-->
+            <div class="content_title">
+                <h3>{{contentData.articleLangInfoList[0].articleTitle}}</h3>
+                <span>&nbsp;&nbsp;&nbsp;{{contentData.articlePublishTime | date:'yyyy.MM.dd'}}</span>
+            </div>
+
+            <div class="article_content s_{{c_size}}" ng-bind-html="contentData.articleLangInfoList[0].articleContent"></div>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

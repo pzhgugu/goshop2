@@ -1,0 +1,53 @@
+<ion-popover-view id="popover_content" class="light padding news_popover" style="width: 100%;height: 100%; left:0px; margin-top: 4px;opacity: 0.5; padding: 0px;">
+  <div class="popover_content">
+
+
+
+      <div class="popover_content_tab" style="margin-top:80px;">
+          <div class="row">
+              <div class="col col-33 " ng-click="closePopover()">
+                <a  href="#/tab/search">
+                      <div class="positive-bg light">
+                          <div>搜索</div>
+                      </div>
+                </a>
+              </div>
+              <div class="col col-33" ng-click="closePopover()">
+                  <a  href="#/tab/collect">
+                      <div class="assertive-bg light">
+                          <div>我的收藏</div>
+                      </div>
+                  </a>
+              </div>
+              <div class="col col-33" ng-click="changePattern()">
+                  <div class="calm-bg light">
+                      <div ng-if="night">日间模式</div>
+                      <div ng-if="!night">夜间模式</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row r_2">
+              <div class="col col-33 ">
+
+                  <div class="balanced-bg light" ng-click="changeSize()">
+                      <div>字体大小</div>
+
+                  </div>
+
+              </div>
+              <div class="col col-33">
+                  <div class="royal-bg light" ng-click="shareClient()">
+                      <div>分享客户端</div>
+                  </div>
+              </div>
+              <div class="col col-33" ng-click="closePopover()">
+                  <div class="energized-bg light">
+                      <div>返回</div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</ion-popover-view>

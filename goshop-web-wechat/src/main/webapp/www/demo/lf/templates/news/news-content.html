@@ -1,0 +1,69 @@
+<ion-view hide-tabs title="文章详情">
+    <ion-content padding="true" on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+
+        <div ng-if="showloading" style="margin-top:60px; text-align: center">
+
+            <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+        </div>
+
+
+        <div  ng-if="showloading==false && contentData['type']!=2" class="article">  <!--文章-->
+           <div class="content_title">
+               <h3>{{contentData['title']}}</h3>
+               <span><span ng-if="contentData['orig']">{{contentData['orig']}}</span> <span ng-if="!contentData['orig']">网络</span>&nbsp;&nbsp;&nbsp;{{contentData['author']}}&nbsp;&nbsp;&nbsp;{{contentData['add_time']}}</span>
+           </div>
+
+            <div class="article_content s_{{c_size}}" ng-bind-html="contentData['content']"></div>
+
+        </div>
+
+
+
+
+        <div  ng-if="showloading==false && contentData['type']==2">  <!---表示是视频--->
+
+            <div ng-click="playVideo()" class="video_top" style="background: #000;padding-left:-2px; padding-right: -2px;">
+                <div class="video_img">
+                    <img src="{{ENV.videoUrl}}{{listData.img}}">
+                </div>
+                <div class="video_play">
+                    <img src="img/play.png">
+                </div>
+
+            </div>
+            <div class="video_content">
+                <div class="video_title">
+                    <h2>{{listData.title}}</h2>
+                </div>
+                <div class="video_info">
+                    <p>{{listData.abst}}</p>
+
+                </div>
+
+                <div class="video_info_c" ng-bind-html="listData.content">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </ion-content>
+
+    <ion-footer-bar align-title="left" class="bar-light" ng-if="contentData['type']!=2">
+        <button class="button button-icon" ng-click="newsContentFontSize()"><span class="font-a">A</span>字号</button>
+        <button  ng-class="{'button': true, 'button-icon': true,'icon':true,'ion-android-star':contentData['is_collect'],'ion-android-star-outline':!contentData['is_collect']}" ng-click="newsContentCollect(contentData['id'])">收藏</button>
+
+        <!--
+        <button ng-if="contentData['is_collect']==1" class="button button-icon icon ion-android-star" ng-click="newsContentCollect(contentData['id'])">收藏</button>
+        -->
+
+        <button class="button button-icon icon ion-android-share-alt" ng-click="newsContentShare()">分享</button>
+    </ion-footer-bar>
+
+
+</ion-view>

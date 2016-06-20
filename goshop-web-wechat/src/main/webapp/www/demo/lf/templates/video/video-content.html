@@ -1,0 +1,31 @@
+<ion-view hide-tabs title="视听详情">
+
+    <ion-content>
+        <div ng-click="playVideo()" class="video_top" style="background: #000;padding-left:-2px; padding-right: -2px;">
+           <div class="video_img">
+               <img src="{{ENV.videoUrl}}{{listData.img}}">
+           </div>
+            <div class="video_play">
+                <img src="img/play.png">
+            </div>
+
+        </div>
+        <div class="video_content">
+            <div class="video_title">
+                <h2>{{listData.title}}</h2>
+            </div>
+            <div class="video_info">
+                <p>{{listData.abst}}</p>
+
+            </div>
+
+            <div class="video_info_c" ng-bind-html="listData.content">
+
+            </div>
+        </div>
+        <div style="height: 40px;"> </div>
+    </ion-content>
+
+
+
+</ion-view>

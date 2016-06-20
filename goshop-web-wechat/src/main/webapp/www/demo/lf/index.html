@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>App</title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular/angular-resource.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="baidushare.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/directive.js"></script>
+</head>
+
+<body ng-class="{'night':night}">
+
+<ion-nav-bar class="bar-assertive nav-title-slide-ios7">
+    <ion-nav-back-button class="button-icon ion-arrow-left-c">
+    </ion-nav-back-button>
+</ion-nav-bar>
+<ion-nav-view animation="slide-left-right"></ion-nav-view>
+
+</body>
+</html>
+

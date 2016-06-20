@@ -1,0 +1,32 @@
+<ion-view hide-tabs title="搜索文章">
+
+    <ion-content>
+        <div class="articel_search">
+            <input type="search" placeholder="请输入搜索关键词" ng-keyup="change(keywords)"  ng-model="keywords"/>
+            <i class="icon ion-ios-search-strong" ng-click="change(keywords)"></i>
+        </div>
+
+       <div class="articel_search_r_t">搜索结果：</div>
+
+        <div ng-if="!listData" style="text-align: center; padding-top:20px;">
+            请输入您要搜索的内容
+        </div>
+
+        <ion-list class="topics_list" ng-if="listData">
+
+            <ion-item class="item-thumbnail-left" collection-repeat="topic in listData" href="#/tab/news_content/{{topic.id}}"
+                      collection-item-width="100%" collection-item-height="88px">
+                <img ng-if="topic.img" ng-src="{{ENV.imgUrl}}{{topic.img}}">
+                <img ng-if="!topic.img" ng-src="img/ionic.png">
+                <h2>{{topic.title}}</h2>
+                <p class="summary">
+                </p>
+            </ion-item>
+
+
+        </ion-list>
+
+    </ion-content>
+
+
+</ion-view>

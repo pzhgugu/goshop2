@@ -1,0 +1,47 @@
+<ion-view  title="新闻中心">
+    <!--<ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-more-vertical" ng-click="openPopover($event);" style="width: 60px; text-align: right; padding-right: 8px;" ></button>
+    </ion-nav-buttons>-->
+    <div class="bar bar-subheader" >
+
+        <ion-scroll direction="x" scrollbar-x="false" delegate-handle="s_header">
+            <div class="button-bar sub_header_list" id="sub_header_list" style="width:{{all_cate_width}}">
+
+                <a ng-repeat="(key,cate) in categoryListMyData" ng-click="changeTab(cate.sc_id,key)" cate_id="{{cate.sc_id}}" class="button button-clear sub_button_select" ng-if="key==0">{{cate.sc_name}}</a>
+                <a ng-repeat="(key,cate) in categoryListMyData" ng-click="changeTab(cate.sc_id,key)" cate_id="{{cate.sc_id}}" class="button button-clear" ng-if="key!=0">{{cate.sc_name}}</a>
+            </div>
+        </ion-scroll>
+
+        <div class="icon ion-chevron-down subheader_r_icon" ng-click="openCategoryModal($event);"></div>
+    </div>
+
+    <ion-content class="has-subheader" delegate-handle="news_list">
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="home-slide" ng-if="index==0||index==null">
+            <ion-slide-box on-slide-changed="slideHasChanged($index)" does-continue="true" slide-interval=2000 show-pager="true" pager-click="pageClick(index)" active-slide="model.activeIndex" delegate-handle="delegateHandler">
+                <ion-slide ng-repeat='slide in newSlideListData'>
+                    <div class="box">
+                        <img ng-src="{{S_URL}}att?path={{slide.file_name}}"/>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <div ng-if="showloading" style="margin-top:60px; text-align: center">
+            <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+        </div>
+        <ion-list class="topics_list" ng-if="showloading==false" on-swipe-left="onSwipeLeft(index)" on-swipe-right="onSwipeRight(index)">
+            <ion-item class="item-thumbnail-left" collection-repeat="topic in portalListData" href="#/tab/news_content/{{topic.articleId}}"
+                      collection-item-width="100%" collection-item-height="96px">
+
+                <img   ng-src="{{S_URL}}att?path={{topic.articleImage}}"/>
+                <h2>{{topic.articleLangInfoList[0].articleTitle}}</h2>
+                <p>{{topic.articlePublishTime | date:'yyyy.MM.dd'}}</p>
+
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll icon="ion-load-d"  on-infinite="loadMore()" distance="1%" ng-if="moreDataCanBeLoaded()"></ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

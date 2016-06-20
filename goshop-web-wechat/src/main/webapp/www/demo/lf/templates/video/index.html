@@ -1,0 +1,43 @@
+<ion-view title="视听">
+    <ion-content>
+
+     <div class="video_content">
+
+
+         <div class="list card" collection-repeat="video in videoListData">
+             <a  href="#/tab/video_content/{{video.id}}">
+
+                 <div class="item item-image">
+
+                     <img ng-src="{{ENV.videoUrl}}{{video.img}}">
+
+                 </div>
+                 <div class="video_title">
+                     <h2>{{video.title}}</h2>
+                     <p>{{video.abst}}</p>
+                 </div>
+                 <div class="item item_icon" style="padding: 5px;">
+                     <div class="item_icon_inline">
+                         <i class="icon ion-ios-film-outline"></i>
+                         <p>{{video.count}}次</p>
+                     </div>
+                     <div class="item_icon_inline item_right">
+                         <i class="icon ion-ios-time-outline"></i>
+                         <p>{{video.add_time}}</p>
+                     </div>
+
+                 </div>
+             </a>
+         </div>
+
+         <ion-infinite-scroll icon="ion-load-d"  on-infinite="loadMore()" distance="1%" ng-if="moreDataCanBeLoaded()"></ion-infinite-scroll>
+
+
+     </div>
+        <div style="height: 60px; clear: both;">
+
+
+        </div>
+
+    </ion-content>
+</ion-view>

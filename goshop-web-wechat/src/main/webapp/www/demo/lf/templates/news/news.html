@@ -1,0 +1,46 @@
+<ion-view  title="廊坊纪检监察网">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-more-vertical" ng-click="openPopover($event);" style="width: 60px; text-align: right; padding-right: 8px;" ></button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader" ng-if="showloading==false">
+
+        <ion-scroll direction="x" scrollbar-x="false" delegate-handle="s_header">
+            <div class="button-bar sub_header_list" id="sub_header_list" style="width:{{all_cate_width}}">
+
+            <a ng-repeat="(key,cate) in categoryListMyData" ng-click="changeTab(cate.id,key)" cate_id="{{cate.id}}" class="button button-clear sub_button_select" ng-if="key==0">{{cate.name}}</a>
+            <a ng-repeat="(key,cate) in categoryListMyData" ng-click="changeTab(cate.id,key)" cate_id="{{cate.id}}" class="button button-clear" ng-if="key!=0">{{cate.name}}</a>
+
+            </div>
+        </ion-scroll>
+
+        <div class="icon ion-chevron-down subheader_r_icon" ng-click="openCategoryModal($event);"></div>
+    </div>
+           <ion-content class="has-subheader" delegate-handle="news_list">
+            <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()">
+            </ion-refresher>
+
+        <div class="home-slide">
+            <ion-slide-box does-continue="true" show-pager="true" auto-play="true">
+                <ion-slide  ng-repeat="focus in focuslListData">
+                    <a href="#/tab/news_content/{{focus.url}}"><img ng-src="{{ENV.siteUrl}}{{focus.img}}"></a>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+        <div ng-if="showloading" style="margin-top:60px; text-align: center">
+
+            <ion-spinner icon="ios" style="height: 60px; width: 60px;;"></ion-spinner>
+        </div>
+        <ion-list class="topics_list" ng-if="showloading==false" on-swipe-left="onSwipeLeft(index)" on-swipe-right="onSwipeRight(index)">
+            <ion-item class="item-thumbnail-left" collection-repeat="topic in portalListData" href="#/tab/news_content/{{topic.id}}"
+                      collection-item-width="100%" collection-item-height="96px">
+                <img ng-if="topic.img && (topic.type==1|| topic.type==2)" ng-src="{{ENV.imgUrl}}{{topic.img}}" onerror="this.src='img/ionic.png'">
+                <img ng-if="!topic.img && (topic.type==1 || topic.type==2)" ng-src="img/ionic.png">
+                <h2 ng-if="topic.type==1 || topic.type==2">{{topic.title}}</h2>
+
+                <img style="width: 100%; height:100px; max-width: 100%; max-height: 100px; margin-left: -10px; margin-top:-20px;" ng-if="topic.type==3" ng-src="{{ENV.imgUrl}}{{topic.img}}" />
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll icon="ion-load-d"  on-infinite="loadMore()" distance="1%" ng-if="moreDataCanBeLoaded()"></ion-infinite-scroll>
+    </ion-content>
+
+</ion-view>

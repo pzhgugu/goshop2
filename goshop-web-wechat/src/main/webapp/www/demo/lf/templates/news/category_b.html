@@ -1,0 +1,55 @@
+<div class="modal">
+  <ion-header-bar class="bar-assertive">
+      <h1 class="title">栏目定制</h1>
+      <div class="buttons">
+          <i class="icon ion-ios-close-empty" ng-click="closeCategoryModal()" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-size: 34px;" />
+      </div>
+  </ion-header-bar>
+  <ion-content class="category-content">
+
+        <div class="category_title">
+           我的栏目  <span ng-if="is_close">(点击空白返回添加栏目，点击X删除我的栏目)</span> <span ng-if="!is_close">(长按删除栏目)</span>
+        </div>
+        <div class="category_list">
+            <ul>
+
+                <li   ng-repeat="(key,cate) in categoryListMyData" on-tap="cateChangeTab(cate.id,key)" on-hold="cateDeleteAll(cate.id,key)">
+
+                    {{cate.name}}
+                    <!--
+                     <div  ng-if="is_close" ng-class="{'close': is_close}" on-tap="cateDelete(cate.id,key)">
+                        X
+                    </div>
+                    -->
+                    <div  ng-if="is_close" ng-class="{'close': is_close}">
+                        X
+                    </div>
+
+                    <ion-reorder-button class="ion-navicon" on-reorder="move_item(item,$fromIndex,$toIndex)"></ion-reorder-button>
+                </li>
+            </ul>
+            <div  ng-if="is_close"  style="width: 100%; min-height: 400px;" ng-click="cateNoDelete()">
+                <div style="text-align: center; padding-top:10px;">点击空白返回添加栏目,点击X删除我的栏目</div>
+
+            </div>
+        </div>
+
+
+
+          <div ng-if="!is_close" class="category_title">
+            更多栏目(点击下面栏目添加到我的栏目)
+          </div>
+          <div ng-if="!is_close" class="category_list">
+              <ul>
+                  <li ng-repeat="(key,cate) in categoryListOtherData"  on-tap="addMyTab(cate.id,key,cate.name)">
+
+                      <a href="javascript:void(0);">{{cate.name}}</a>
+
+                  </li>
+              </ul>
+
+          </div>
+
+
+  </ion-content>
+</div>
