@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* ================================ */
+/* 商城注册登录页面相关样式定义 			*/
+/* Author:			Hulihutu		*/
+/* Copyright:		www.shopnc.net	*/
+/* Create Date:		Aug-10-2012		*/
+/* Retrofit Date:	Sep-01-2012		*/
+/* ================================ */
+
+label.error { color: #F30;}
+
+.quick-login { background: #FFF; overflow: hidden; width: 278px; padding: 0 40px; }
+.quick-login dl { width: 100%; margin: 0 auto; overflow: hidden;}
+.quick-login dl dt { line-height: 20px; height:20px; margin: 8px 0 2px 0; text-shadow: 1px 1px 0 #FFF;}
+.quick-login dl dd span { line-height: 28px; color: #999; margin-left:8px;}
+.quick-login .text{ font-family: Tahoma; width: 250px; height: 24px; line-height: 24px; background-color:#FFF; padding: 1px 2px 3px 4px !important; padding: 3px 2px 1px 4px; border: solid 1px; border-color: #CCC #DDD #DDD #CCC; border-radius: 0; box-shadow: 2px 2px 1px 0 #E7E7E7 inset; -moz-box-shadow: 2px 2px 1px 0 #E7E7E7 inset/* if FF*/; -webkit--box-shadow: 2px 2px 1px 0 #E7E7E7 inset/* if Webkie*/;}
+.quick-login .text:focus{ background-color:#FFF; border-color: #CCC; box-shadow: 1px 1px 1px 0 #E7E7E7; -moz-box-shadow: 1px 1px 1px 0 #E7E7E7/* if FF*/; -webkit--box-shadow: 1px 1px 1px 0 #E7E7E7/* if Webkie*/;}
+
+.quick-login ul { width: 100%; display:block; clear:both; margin: 20px auto 10px auto; padding-bottom:10px; overflow: hidden; border-bottom: solid 1px #E7E7E7;}
+.quick-login ul li {line-height: 20px; color:#999;}
+.quick-login ul li a { text-decoration:underline; font-weight:600; margin:0 2px;}
+.quick-login ul li a.forget {  color: #FF7F00;}
+.quick-login ul li a.register { color: #006DD9;}
+.quick-login .enter { width: 100%; margin: 10px auto 20px auto; overflow: hidden;}
+.quick-login .enter .submit { color:#FFF; font-weight:600; background: url(../images/login/login.png) no-repeat scroll 0px 0px;  width: 88px; height: 28px; padding: 0; margin: 0; border: 0; cursor:pointer; text-shadow: 1px 1px 0 #DB7800;}
+.quick-login .enter .submit:hover { background: url(../images/login/login.png) no-repeat scroll 0px -28px; }
+.quick-login .enter span {  border-left: dotted 1px #ccc; padding-left:6px; margin: 0 0 0 6px; line-height:28px;}
+.quick-login .enter span a { background-image: url(../images/login/login.png); background-repeat: no-repeat; background-attachment: scroll; height: 28px; display: inline-block;}
+.quick-login .enter span a.qq { background-position: -88px 0px; width: 78px;}
+.quick-login .enter span a:hover.qq {background-position: -88px -28px; text-decoration:none;}
+.quick-login .enter span a.sina { background-position: -166px 0px; width: 88px;}
+.quick-login .enter span a:hover.sina {background-position: -166px -28px; text-decoration:none;}
+
+
+
+/* 注册表单样式 */
+.nc-login-layout { width: 850px; margin: 0 auto}
+.nc-login { width: 400px; float:right; }
+.nc-login-title { background:#F9F9F9; border: #D8D8D8 solid; border-width: 1px 1px 0 1px;}
+.nc-login-title h3 {font-size:18px; font-family: "microsoft yahei"; font-weight:700; line-height: 20px; padding:15px 0 25px 25px; color: #555;}
+.nc-login-content { background:#F9F9F9; padding: 0 20px; border: #D8D8D8 solid; border-width: 0 1px; overflow:hidden; zoom:1;}
+.nc-login-content dl { width: 100%; float:left; clear: both; padding: 0; }
+.nc-login-content dt { font-size:14px; line-height: 28px; color: #777; text-align: right; width: 22%; float:left; }
+.nc-login-content dd { text-align:left; width:75%; float:right;}
+.nc-login-content dd label { clear:both; float:left; line-height: 24px; height:24px; width:210px; margin:0;}
+.nc-login-content dd .text{ font-family: Tahoma; width: 220px; height: 20px; line-height: 20px; background-color:#FFF; padding: 3px!important; border: solid 1px; border-color: #BBB;}
+.nc-login-content dd .text:focus{ background-color:#FFF; border-color: #EFA100; outline: 2px solid #FFDC97;}
+.nc-login-content dd a { line-height: 28px;height: 28px; text-align: left; color: #999;}
+.nc-login-content .submit { font-size: 14px; font-weight: 700; color: #FFF; background: url(../images/login/login.png) no-repeat scroll 0px -56px; vertical-align: middle;  width: 98px; height: 34px; padding: 0; margin: 0; border: 0; cursor: pointer;}
+.nc-login-content .submit:hover{ background: url(../images/login/login.png) no-repeat scroll 0px -90px; }
+
+.nc-login-layout a.forget { font-weight:700; color:#06C; vertical-align: middle; margin-left:10px;}
+.nc-login-layout a.register { font-weight: 600; line-height: 26px; color: #555; background: #FFF url(../images/login/login.png) no-repeat scroll -98px -56px; text-align: center; display:inline-block; width: 50px; height: 26px; margin: 0 6px;}
+.nc-login-layout a:hover.register {background-position: -98px -82px; color: #000;text-decoration: none;}
+.nc-login-layout a.agreement { color: #c53801; font-weight:600; }
+.nc-login-layout a.agreement:hover { text-decoration: underline; }
+
+.nc-login-other { border-top: dashed 1px #D8D8D8; padding:10px 0px 20px 28%;}
+.nc-login-other p { line-height: 20px; color: #777; }
+.nc-login-other a { text-decoration: none; display: inline-block; background: url(../images/login/login.png) no-repeat scroll; vertical-align: middle; margin-top: 10px; height: 28px;}
+.nc-login-other a.qq { background-position: -88px 0px; width: 78px;}
+.nc-login-other a:hover.qq {background-position: -88px -28px;}
+.nc-login-other a.sina { background-position: -166px 0px; width: 88px;}
+.nc-login-other a:hover.sina {background-position: -166px -28px;}
+
+.nc-login-bottom { clear: both; background: url(../images/login/login.png) no-repeat scroll 0px -124px; width: 400px; height: 40px;}
+
+.nc-login-layout .left-pic { background-color: #FFF; width: 450px; height: 350px; float:left; position: relative; z-index:1;}
+.nc-login-layout .left-pic img { width: 450px; height: 350px; position: absolute; z-index:1; top:0; left:0 }
+.nc-login-layout .left-pic span { position:absolute; z-index: 2; top:220px; left:100px; line-height:32px; font-size: 24px; font-family:"microsoft yahei"; width: 250px; text-align: center; }
+.nc-login-layout .left-pic p a { color: #FFF; position:absolute; z-index: 2; top:270px; left: 165px; line-height:28px; font-size: 12px; width: 120px; text-align: center; }
+.nc-login-left { line-height: 22px; color: #626A73; display: inline; width: 450px; float: left; margin: 10px 0;}
+.nc-login-left h3 { font-size:18px; font-family: "microsoft yahei"; font-weight:700; color: #555; line-height: 30px; margin-top: 2px; margin-bottom: 6px;}
+.nc-login-left ol { width: 420px; margin-top: 20px;  border-bottom: dashed 1px #E7E7E7;}
+.nc-login-left ol li { font-family: "microsoft yahei"; font-size: 14px; line-height: 48px; display: block; vertical-align: middle; width: 200px; height: 48px; float: left; padding: 0 0 12px 0; margin: 0 0 5px 10px; overflow: hidden;}
+.nc-login-left ol li i { display: inline-block; background: url(../images/login/login.png) no-repeat scroll; vertical-align: middle; width: 48px; height: 48px; margin-right:10px;}
+.nc-login-left ol li.ico01 i { background-position: -256px 0;}
+.nc-login-left ol li.ico02 i { background-position: -304px 0; }
+.nc-login-left ol li.ico03 i { background-position: -352px 0; }
+.nc-login-left ol li.ico04 i { background-position: -256px -48px; }
+.nc-login-left ol li.ico05 i { background-position: -304px -48px; }
+.nc-login-left ol li.ico06 i { background-position: -352px -48px; }
+
+
+@media projection, screen {
+.ui-tabs-hide {
+	display: none;
+}
+}
+@media print {
+.ui-tabs-nav {
+	display: none;
+}
+}
+
+.ui-tabs-nav:after {
+	display: block;
+	clear: both;
+	content: " ";
+}
+
+
+
+.ui-tabs-disabled {
+	opacity: .4;
+	filter: alpha(opacity=40);
+}
+
+.ui-tabs-loading em {
+	background: url(../images/loading.gif) no-repeat 0 50%;
+	padding: 0 0 0 20px;
+}
+* html .ui-tabs-nav {
+	display: inline-block;
+}
+*:first-child+html .ui-tabs-nav {
+	display: inline-block;
+}
+
+.nc-login ul li { background:#FFF; display:block;
+	border: solid #D8D8D8;
+	border-width: 1px 1px 1px 1px;
+	float: left;
+	width: 199px;
+	height:30px; line-height: 30px;
+	text-align: center; margin: 5px -1px 0 -1px; font-size:12px; font-weight:600;
+	line-height: 28px; position:relative; z-index:1;
+}
+.nc-login ul li a { color:#999;}
+.nc-login ul li.ui-tabs-selected { line-height:36px; font-size: 14px; font-weight:600;
+	border: solid #D8D8D8;
+	border-width: 1px 1px 0 1px;
+	background: #F9F9F9;
+	float: left;
+	width: 198px; height:36px; margin:0;
+	text-align: center;
+	position:relative; z-index:2;
+}
+.nc-login ul li.ui-tabs-selected a { color: #333;}
+

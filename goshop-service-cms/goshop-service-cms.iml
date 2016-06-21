@@ -14,6 +14,8 @@
     <orderEntry type="module" module-name="goshop-facade-cms" />
     <orderEntry type="module" module-name="goshop-common" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.2" level="project" />
@@ -30,9 +32,9 @@
     <orderEntry type="library" name="Maven: com.github.bingoohuang:patchca:0.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:17.0" level="project" />
     <orderEntry type="library" name="Maven: org.csource:fastdfs-client-java:1.25" level="project" />
+    <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
-    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-ehcache:1.2.4" level="project" />

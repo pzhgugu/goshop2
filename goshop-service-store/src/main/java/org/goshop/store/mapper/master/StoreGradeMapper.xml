@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.store.mapper.master.StoreGradeMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.store.pojo.StoreGrade" >
+    <id column="sg_id" property="sgId" jdbcType="INTEGER" />
+    <result column="sg_name" property="sgName" jdbcType="CHAR" />
+    <result column="sg_goods_limit" property="sgGoodsLimit" jdbcType="INTEGER" />
+    <result column="sg_album_limit" property="sgAlbumLimit" jdbcType="INTEGER" />
+    <result column="sg_space_limit" property="sgSpaceLimit" jdbcType="INTEGER" />
+    <result column="sg_template_number" property="sgTemplateNumber" jdbcType="TINYINT" />
+    <result column="sg_template" property="sgTemplate" jdbcType="VARCHAR" />
+    <result column="sg_price" property="sgPrice" jdbcType="VARCHAR" />
+    <result column="sg_confirm" property="sgConfirm" jdbcType="BIT" />
+    <result column="sg_function" property="sgFunction" jdbcType="VARCHAR" />
+    <result column="sg_sort" property="sgSort" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.goshop.store.pojo.StoreGrade" extends="BaseResultMap" >
+    <result column="sg_description" property="sgDescription" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sg_id, sg_name, sg_goods_limit, sg_album_limit, sg_space_limit, sg_template_number, 
+    sg_template, sg_price, sg_confirm, sg_function, sg_sort
+  </sql>
+  <sql id="Blob_Column_List" >
+    sg_description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_store_grade
+    where sg_id = #{sgId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gs_store_grade
+    where sg_id = #{sgId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.store.pojo.StoreGrade" >
+    insert into gs_store_grade (sg_id, sg_name, sg_goods_limit, 
+      sg_album_limit, sg_space_limit, sg_template_number, 
+      sg_template, sg_price, sg_confirm, 
+      sg_function, sg_sort, sg_description
+      )
+    values (#{sgId,jdbcType=INTEGER}, #{sgName,jdbcType=CHAR}, #{sgGoodsLimit,jdbcType=INTEGER}, 
+      #{sgAlbumLimit,jdbcType=INTEGER}, #{sgSpaceLimit,jdbcType=INTEGER}, #{sgTemplateNumber,jdbcType=INTEGER},
+      #{sgTemplate,jdbcType=VARCHAR}, #{sgPrice,jdbcType=VARCHAR}, #{sgConfirm,jdbcType=BIT}, 
+      #{sgFunction,jdbcType=VARCHAR}, #{sgSort,jdbcType=INTEGER}, #{sgDescription,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.store.pojo.StoreGrade" >
+    insert into gs_store_grade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sgId != null" >
+        sg_id,
+      </if>
+      <if test="sgName != null" >
+        sg_name,
+      </if>
+      <if test="sgGoodsLimit != null" >
+        sg_goods_limit,
+      </if>
+      <if test="sgAlbumLimit != null" >
+        sg_album_limit,
+      </if>
+      <if test="sgSpaceLimit != null" >
+        sg_space_limit,
+      </if>
+      <if test="sgTemplateNumber != null" >
+        sg_template_number,
+      </if>
+      <if test="sgTemplate != null" >
+        sg_template,
+      </if>
+      <if test="sgPrice != null" >
+        sg_price,
+      </if>
+      <if test="sgConfirm != null" >
+        sg_confirm,
+      </if>
+      <if test="sgFunction != null" >
+        sg_function,
+      </if>
+      <if test="sgSort != null" >
+        sg_sort,
+      </if>
+      <if test="sgDescription != null" >
+        sg_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sgId != null" >
+        #{sgId,jdbcType=INTEGER},
+      </if>
+      <if test="sgName != null" >
+        #{sgName,jdbcType=CHAR},
+      </if>
+      <if test="sgGoodsLimit != null" >
+        #{sgGoodsLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sgAlbumLimit != null" >
+        #{sgAlbumLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sgSpaceLimit != null" >
+        #{sgSpaceLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sgTemplateNumber != null" >
+        #{sgTemplateNumber,jdbcType=INTEGER},
+      </if>
+      <if test="sgTemplate != null" >
+        #{sgTemplate,jdbcType=VARCHAR},
+      </if>
+      <if test="sgPrice != null" >
+        #{sgPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="sgConfirm != null" >
+        #{sgConfirm,jdbcType=BIT},
+      </if>
+      <if test="sgFunction != null" >
+        #{sgFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="sgSort != null" >
+        #{sgSort,jdbcType=INTEGER},
+      </if>
+      <if test="sgDescription != null" >
+        #{sgDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.store.pojo.StoreGrade" >
+    update gs_store_grade
+    <set >
+      <if test="sgName != null" >
+        sg_name = #{sgName,jdbcType=CHAR},
+      </if>
+      <if test="sgGoodsLimit != null" >
+        sg_goods_limit = #{sgGoodsLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sgAlbumLimit != null" >
+        sg_album_limit = #{sgAlbumLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sgSpaceLimit != null" >
+        sg_space_limit = #{sgSpaceLimit,jdbcType=INTEGER},
+      </if>
+      <if test="sgTemplateNumber != null" >
+        sg_template_number = #{sgTemplateNumber,jdbcType=INTEGER},
+      </if>
+      <if test="sgTemplate != null" >
+        sg_template = #{sgTemplate,jdbcType=VARCHAR},
+      </if>
+      <if test="sgPrice != null" >
+        sg_price = #{sgPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="sgConfirm != null" >
+        sg_confirm = #{sgConfirm,jdbcType=BIT},
+      </if>
+      <if test="sgFunction != null" >
+        sg_function = #{sgFunction,jdbcType=VARCHAR},
+      </if>
+      <if test="sgSort != null" >
+        sg_sort = #{sgSort,jdbcType=INTEGER},
+      </if>
+      <if test="sgDescription != null" >
+        sg_description = #{sgDescription,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where sg_id = #{sgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.goshop.store.pojo.StoreGrade" >
+    update gs_store_grade
+    set sg_name = #{sgName,jdbcType=CHAR},
+      sg_goods_limit = #{sgGoodsLimit,jdbcType=INTEGER},
+      sg_album_limit = #{sgAlbumLimit,jdbcType=INTEGER},
+      sg_space_limit = #{sgSpaceLimit,jdbcType=INTEGER},
+      sg_template_number = #{sgTemplateNumber,jdbcType=INTEGER},
+      sg_template = #{sgTemplate,jdbcType=VARCHAR},
+      sg_price = #{sgPrice,jdbcType=VARCHAR},
+      sg_confirm = #{sgConfirm,jdbcType=BIT},
+      sg_function = #{sgFunction,jdbcType=VARCHAR},
+      sg_sort = #{sgSort,jdbcType=INTEGER},
+      sg_description = #{sgDescription,jdbcType=LONGVARCHAR}
+    where sg_id = #{sgId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.store.pojo.StoreGrade" >
+    update gs_store_grade
+    set sg_name = #{sgName,jdbcType=CHAR},
+      sg_goods_limit = #{sgGoodsLimit,jdbcType=INTEGER},
+      sg_album_limit = #{sgAlbumLimit,jdbcType=INTEGER},
+      sg_space_limit = #{sgSpaceLimit,jdbcType=INTEGER},
+      sg_template_number = #{sgTemplateNumber,jdbcType=INTEGER},
+      sg_template = #{sgTemplate,jdbcType=VARCHAR},
+      sg_price = #{sgPrice,jdbcType=VARCHAR},
+      sg_confirm = #{sgConfirm,jdbcType=BIT},
+      sg_function = #{sgFunction,jdbcType=VARCHAR},
+      sg_sort = #{sgSort,jdbcType=INTEGER}
+    where sg_id = #{sgId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findAll" resultMap="ResultMapWithBLOBs" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_store_grade
+    order by sg_sort
+  </select>
+
+  <select id="findBySgName" resultMap="ResultMapWithBLOBs" parameterType="string" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_store_grade
+    where sg_name = #{sgName,jdbcType=CHAR}
+  </select>
+
+  <select id="checkBySgIdSgSort" resultMap="ResultMapWithBLOBs" parameterType="int" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_store_grade
+    where sg_sort = #{sgSort,jdbcType=INTEGER}
+  </select>
+
+  <select id="findByLikeSgName" resultMap="ResultMapWithBLOBs" parameterType="string" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from gs_store_grade
+    where sg_name like CONCAT('%',#{sgName,jdbcType=CHAR},'%')
+  </select>
+</mapper>

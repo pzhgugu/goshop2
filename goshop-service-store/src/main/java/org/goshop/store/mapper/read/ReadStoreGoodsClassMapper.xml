@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.goshop.store.mapper.read.ReadStoreGoodsClassMapper" >
+  <resultMap id="BaseResultMap" type="org.goshop.store.pojo.StoreGoodsClass" >
+    <id column="stc_id" property="stcId" jdbcType="INTEGER" />
+    <result column="stc_name" property="stcName" jdbcType="VARCHAR" />
+    <result column="stc_parent_id" property="stcParentId" jdbcType="INTEGER" />
+    <result column="stc_state" property="stcState" jdbcType="BIT" />
+    <result column="store_id" property="storeId" jdbcType="INTEGER" />
+    <result column="stc_sort" property="stcSort" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stc_id, stc_name, stc_parent_id, stc_state, store_id, stc_sort
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gs_store_goods_class
+    where stc_id = #{stcId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gs_store_goods_class
+    where stc_id = #{stcId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.goshop.store.pojo.StoreGoodsClass" >
+    insert into gs_store_goods_class (stc_id, stc_name, stc_parent_id, 
+      stc_state, store_id, stc_sort
+      )
+    values (#{stcId,jdbcType=INTEGER}, #{stcName,jdbcType=VARCHAR}, #{stcParentId,jdbcType=INTEGER}, 
+      #{stcState,jdbcType=BIT}, #{storeId,jdbcType=INTEGER}, #{stcSort,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.goshop.store.pojo.StoreGoodsClass" >
+    insert into gs_store_goods_class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stcId != null" >
+        stc_id,
+      </if>
+      <if test="stcName != null" >
+        stc_name,
+      </if>
+      <if test="stcParentId != null" >
+        stc_parent_id,
+      </if>
+      <if test="stcState != null" >
+        stc_state,
+      </if>
+      <if test="storeId != null" >
+        store_id,
+      </if>
+      <if test="stcSort != null" >
+        stc_sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stcId != null" >
+        #{stcId,jdbcType=INTEGER},
+      </if>
+      <if test="stcName != null" >
+        #{stcName,jdbcType=VARCHAR},
+      </if>
+      <if test="stcParentId != null" >
+        #{stcParentId,jdbcType=INTEGER},
+      </if>
+      <if test="stcState != null" >
+        #{stcState,jdbcType=BIT},
+      </if>
+      <if test="storeId != null" >
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="stcSort != null" >
+        #{stcSort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.goshop.store.pojo.StoreGoodsClass" >
+    update gs_store_goods_class
+    <set >
+      <if test="stcName != null" >
+        stc_name = #{stcName,jdbcType=VARCHAR},
+      </if>
+      <if test="stcParentId != null" >
+        stc_parent_id = #{stcParentId,jdbcType=INTEGER},
+      </if>
+      <if test="stcState != null" >
+        stc_state = #{stcState,jdbcType=BIT},
+      </if>
+      <if test="storeId != null" >
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="stcSort != null" >
+        stc_sort = #{stcSort,jdbcType=INTEGER},
+      </if>
+    </set>
+    where stc_id = #{stcId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.goshop.store.pojo.StoreGoodsClass" >
+    update gs_store_goods_class
+    set stc_name = #{stcName,jdbcType=VARCHAR},
+      stc_parent_id = #{stcParentId,jdbcType=INTEGER},
+      stc_state = #{stcState,jdbcType=BIT},
+      store_id = #{storeId,jdbcType=INTEGER},
+      stc_sort = #{stcSort,jdbcType=INTEGER}
+    where stc_id = #{stcId,jdbcType=INTEGER}
+  </update>
+
+  <select id="findByStcParentId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from gs_store_goods_class
+    where
+    <if test="parentId != null" >
+      stc_parent_id = #{parentId,jdbcType=INTEGER}
+    </if>
+    <if test="parentId == null" >
+      stc_parent_id is null
+    </if>
+    order by stc_sort
+  </select>
+</mapper>

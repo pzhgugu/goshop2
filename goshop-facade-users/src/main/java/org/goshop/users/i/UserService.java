@@ -32,4 +32,10 @@ public interface UserService {
     void updateLoginInfo(User user, String ip);
 
     List<Role> findByRole(Long userId);
+
+    int updateByPrimaryKey(User user);
+
+    User selectByPrimaryKey(Long userId);
+
+    int insert(User user);
 }

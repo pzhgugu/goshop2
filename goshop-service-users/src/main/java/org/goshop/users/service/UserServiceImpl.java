@@ -81,6 +81,21 @@ public class UserServiceImpl implements UserService {
         return readUserMapper.findByRole(userId);
     }
 
+    @Override
+    public int updateByPrimaryKey(User user) {
+        return userMapper.updateByPrimaryKey(user);
+    }
+
+    @Override
+    public User selectByPrimaryKey(Long userId) {
+        return readUserMapper.selectByPrimaryKey(userId);
+    }
+
+    @Override
+    public int insert(User user) {
+        return userMapper.insert(user);
+    }
+
 
     /**
      * 将密码加密

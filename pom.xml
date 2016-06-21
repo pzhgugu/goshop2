@@ -20,6 +20,13 @@
         <module>goshop-web-manager</module>
         <module>goshop-web-cms</module>
         <module>goshop-web-wechat</module>
+        <module>goshop-web-portal</module>
+        <module>goshop-facade-email</module>
+        <module>goshop-service-email</module>
+        <module>goshop-facade-store</module>
+        <module>goshop-service-store</module>
+        <module>goshop-facade-goods</module>
+        <module>goshop-service-goods</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -119,6 +126,24 @@
             <dependency>
                 <groupId>org.goshop</groupId>
                 <artifactId>goshop-service-cms</artifactId>
+                <version>${goshop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.goshop</groupId>
+                <artifactId>goshop-facade-email</artifactId>
+                <version>${goshop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.goshop</groupId>
+                <artifactId>goshop-facade-store</artifactId>
+                <version>${goshop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.goshop</groupId>
+                <artifactId>goshop-facade-goods</artifactId>
                 <version>${goshop.version}</version>
             </dependency>
             <!-- 邮件发送 -->
@@ -301,6 +326,12 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.0.1</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

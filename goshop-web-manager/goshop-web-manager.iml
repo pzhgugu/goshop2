@@ -24,6 +24,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="goshop-facade-users" />
     <orderEntry type="module" module-name="goshop-common" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:3.4.2-fix" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.2.8" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9" level="project" />
@@ -33,8 +35,6 @@
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.7.3" level="project" />
     <orderEntry type="module" module-name="goshop-common-shiro" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
-    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-ehcache:1.2.4" level="project" />

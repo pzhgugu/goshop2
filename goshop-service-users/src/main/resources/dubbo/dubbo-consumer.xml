@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="goshop-service-users"  />
+    <!-- 使用redis中心暴露发现服务地址-->
+    <dubbo:registry address="${dubbo.address}"  check="false" />
+    <!-- 使用multicast广播注册中心暴露发现服务地址
+    <dubbo:registry address="multicast://224.5.6.7:1234?unicast=false" check="false"/>-->
+    <!-- zookeeper注册中心
+    <dubbo:registry protocol="zookeeper"  address="127.0.0.1:2181" check="false" />-->
+
+    <!-- 监控中心配置，protocol="registry"，表示从注册中心发现监控中心地址
+    <dubbo:monitor protocol="registry" />-->
+
+    <!-- 用户信息引用 -->
+    <import resource="dubbo-reference-email.xml" />
+</beans>
