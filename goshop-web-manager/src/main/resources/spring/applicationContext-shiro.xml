@@ -3,14 +3,14 @@
 	   xmlns:context="http://www.springframework.org/schema/context"
 	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
-		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
-		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
 
 	<!-- web.xml中shiro的filter对应的bean -->
@@ -19,10 +19,10 @@
 		<property name="securityManager" ref="securityManager" />
 		<!-- loginUrl认证提交地址，如果没有认证将会请求此地址进行认证，请求此地址将由formAuthenticationFilter进行表单认证 -->
 		<property name="loginUrl" value="/login.do" />
-		<!-- 认证成功统一跳转到first.action，建议不配置，shiro认证成功自动到上一个请求路径-->
-		<property name="successUrl" value="/home"/>
+		<!-- 认证成功统一跳转到first.action，建议不配置，shiro认证成功自动到上一个请求路径
+		<property name="successUrl" value="/first"/>-->
 		<!-- 通过unauthorizedUrl指定没有权限操作时跳转页面-->
-		<property name="unauthorizedUrl" value="/refuse" />
+		<property name="unauthorizedUrl" value="/refuse.html" />
 
 		<!-- 自定义filter配置 -->
 		<property name="filters">
@@ -36,17 +36,16 @@
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- 对静态资源设置匿名访问 -->
-				/validationCodeServlet.png**= anon
 				/static/** = anon
-				/refuse = anon
-				/att**=anon
+				/validationCodeServlet.png = anon
 				<!-- 请求 logout.action地址，shiro去清除session-->
-				/logout = logout
+				/logout.html = logout
 				/login.do = authc
+				/store_join/** = authc
+				/member/** = authc
 				<!-- /** = authc 所有url都必须认证通过才可以访问
 				/home = -->
-				<!--/** = perms[admin:read]-->
-				/** = roles[admin]
+				/** = anon
 				<!-- /** = anon所有url都可以匿名访问 -->
 
 			</value>
@@ -115,12 +114,15 @@
 	</bean>
 
 
+
+
 	<!-- 凭证匹配器 -->
 	<bean id="credentialsMatcher"
 		  class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
 		<property name="hashAlgorithmName" value="md5" />
 		<property name="hashIterations" value="1" />
 	</bean>
+
 
 	<!-- 自定义form认证过虑器 -->
 	<!-- 基于Form表单的身份验证过滤器，不配置将也会注册此过虑器，表单中的用户账号、密码及loginurl将采用默认值，建议配置 -->

@@ -14,9 +14,6 @@ import java.text.MessageFormat;
 @Service
 public class FindPasswordEMailServiceImpl implements FindPasswordService {
 
-    @Value("${EMAIL_ADDRESS}")
-    private String eMailAddress;
-
     @Value("${SHOP_URL}")
     private String shopUrl;
 

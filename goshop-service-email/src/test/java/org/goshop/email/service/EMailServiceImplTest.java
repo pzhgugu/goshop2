@@ -3,9 +3,7 @@ package org.goshop.email.service;
 import org.goshop.email.i.EMailService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import service.SpringBaseTest;
-
-import static org.junit.Assert.*;
+import org.goshop.base.service.SpringBaseTest;
 
 /**
  * Created by Administrator on 2016/6/21.

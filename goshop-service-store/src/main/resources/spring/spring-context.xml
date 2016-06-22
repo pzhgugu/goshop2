@@ -8,6 +8,8 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
+	<!-- 采用注释的方式配置bean -->
+	<context:annotation-config />
 	<!-- 加载配置文件 -->
 	<context:property-placeholder  ignore-resource-not-found="true"
 								   location="classpath:common.properties,classpath:resource/*.properties,
@@ -15,8 +17,13 @@
 	<!-- 扫描包加载Service实现类 -->
 	<context:component-scan base-package="org.goshop.*.service" />
 
+	<!-- proxy-target-class默认"false",更改为"ture"使用CGLib动态代理 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
 	<import resource="classpath:spring/applicationContext-dao.xml" />
 	<import resource="classpath:spring/applicationContext-jedis.xml" />
 	<import resource="classpath:spring/applicationContext-dubbo-provider.xml" />
+	<import resource="classpath:spring/applicationContext-dubbo-consumer.xml" />
 	<import resource="classpath:spring/applicationContext-shiro.xml" />
+	<!--<import resource="classpath:dubbo/dubbo-consumer.xml" />-->
 </beans>

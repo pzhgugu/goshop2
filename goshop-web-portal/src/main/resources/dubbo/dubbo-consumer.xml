@@ -22,4 +22,5 @@
     <!-- 用户信息引用 -->
     <import resource="dubbo-reference-user.xml" />
     <import resource="dubbo-reference-cms.xml" />
+    <import resource="dubbo-reference-store.xml" />
 </beans>

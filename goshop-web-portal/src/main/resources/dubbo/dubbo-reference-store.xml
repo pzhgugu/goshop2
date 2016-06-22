@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 声明远程服务接口 -->
+    <dubbo:reference id="storeClassService"
+                     interface="org.goshop.store.i.StoreClassService" check="false" />
+    <dubbo:reference id="storeGoodsClassService"
+                     interface="org.goshop.store.i.StoreGoodsClassService" check="false" />
+    <dubbo:reference id="storeGradeService"
+                     interface="org.goshop.store.i.StoreGradeService" check="false" />
+    <dubbo:reference id="storeJoinService"
+                     interface="org.goshop.store.i.StoreJoinService" check="false" />
+    <dubbo:reference id="storeService"
+                     interface="org.goshop.store.i.StoreService" check="false" />
+</beans>

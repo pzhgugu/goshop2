@@ -18,7 +18,7 @@
 	<import resource="classpath:spring/applicationContext-dao.xml" />
 	<import resource="classpath:spring/applicationContext-jedis.xml" />
 	<import resource="classpath:spring/applicationContext-dubbo-provider.xml" />
+	<import resource="classpath:spring/applicationContext-dubbo-consumer.xml" />
 	<import resource="classpath:spring/applicationContext-shiro.xml" />
-	<import resource="classpath:dubbo/dubbo-consumer.xml" />
 
 </beans>

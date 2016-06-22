@@ -8,7 +8,7 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="goshop-service-cms"  />
+    <dubbo:application name="goshop-service-store"  />
 
     <!-- 使用redis中心暴露发现服务地址-->
     <dubbo:registry  address="${dubbo.address}"  check="false" />
@@ -25,16 +25,16 @@
     <dubbo:provider timeout="10000" threadpool="fixed" threads="100" accepts="1000" />
 
     <!--通讯配置-->
-    <dubbo:protocol name="dubbo"  dispatcher="all" threadpool="fixed" threads="20" port="28881" />
+    <dubbo:protocol name="dubbo"  dispatcher="all" threadpool="fixed" threads="20" port="28884" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service  retries="0" interface="org.goshop.cms.i.ArticleLangService" ref="articleLangService"  />
+    <dubbo:service  retries="0" interface="org.goshop.store.i.StoreClassService" ref="storeClassService"  />
 
-    <dubbo:service  retries="0" interface="org.goshop.cms.i.CmsArticleClassService" ref="cmsArticleClassService"  />
+    <dubbo:service  retries="0" interface="org.goshop.store.i.StoreGoodsClassService" ref="storeGoodsClassService"  />
 
-    <dubbo:service  retries="0" interface="org.goshop.cms.i.CmsArticleService" ref="cmsArticleService"  />
+    <dubbo:service  retries="0" interface="org.goshop.store.i.StoreGradeService" ref="storeGradeService"  />
 
-    <dubbo:service  retries="0" interface="org.goshop.cms.i.CmsSlideService" ref="cmsSlideService"  />
+    <dubbo:service  retries="0" interface="org.goshop.store.i.StoreJoinService" ref="storeJoinService"  />
 
-
+    <dubbo:service  retries="0" interface="org.goshop.store.i.StoreService" ref="storeService"  />
 </beans>
