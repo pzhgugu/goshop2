@@ -52,6 +52,5 @@
             function() {
               $(this).removeClass("hover");
             });
-
   });
 </script>
