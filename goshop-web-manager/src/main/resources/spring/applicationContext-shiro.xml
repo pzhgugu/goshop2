@@ -39,7 +39,7 @@
 				/static/** = anon
 				/validationCodeServlet.png = anon
 				<!-- 请求 logout.action地址，shiro去清除session-->
-				/logout.html = logout
+				/logout = logout
 				/login.do = authc
 				/store_join/** = authc
 				/member/** = authc

@@ -13,8 +13,8 @@
             _behavior: url(${S_URL}/static/styles/csshover.htc);
         }
     </style>
-    <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/styles/shop/base.css">
-    <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/styles/shop/home_header.css">
+    <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/shop/base.css">
+    <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/shop/home_header.css">
     <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/home_login.css">
     <link rel="stylesheet" href="${S_URL}/static/styles/font-awesome/css/font-awesome.min.css">
     <!--[if IE 7]>
@@ -22,11 +22,11 @@
     <![endif]-->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="${S_COMMON_URL}/scripts/utils/html5shiv.js"></script>
-    <script src="${S_COMMON_URL}/scripts/utils/respond.js"></script>
+    <script src="${S_URL}/static/scripts/utils/html5shiv.js"></script>
+    <script src="${S_URL}/static/scripts/utils/respond.js"></script>
     <![endif]-->
     <!--[if IE 6]>
-    <script src="${S_COMMON_URL}/scripts/utils/IE6_PNG.js"></script>
+    <script src="${S_URL}/static/scripts/utils/IE6_PNG.js"></script>
     <script>
         DD_belatedPNG.fix('.pngFix');
     </script>
@@ -45,15 +45,15 @@ catch(e){}
         var _CHARSET = 'utf-8';
         var SITEURL = '${S_URL}';
     </script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery-browser.js"></script>
-    <script src="${S_COMMON_URL}/scripts/shop/common.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery-ui/jquery.ui.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.validation.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.masonry.js"></script>
-    <script charset="utf-8" id="dialog_js" src="${S_COMMON_URL}/scripts/dialog/dialog.js">
+    <script src="${S_URL}/static/scripts/jquery/jquery.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery-browser.js"></script>
+    <script src="${S_URL}/static/scripts/shop/common.js"></script>
+    <script src="${S_URL}/static/scripts/jquery-ui/jquery.ui.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.validation.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.masonry.js"></script>
+    <script charset="utf-8" id="dialog_js" src="${S_URL}/static/scripts/dialog/dialog.js">
     </script>
-    <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/scripts/dialog/dialog.css">
+    <link type="text/css" rel="stylesheet" href="${S_URL}/static/scripts/dialog/dialog.css">
 
     <style type="text/css">
         <!--

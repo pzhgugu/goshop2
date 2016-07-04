@@ -1,6 +1,6 @@
 <header class="wrapper">
     <h1 class="logo"><a href="#">
-        <img class="pngFix" src="${S_COMMON_URL}/images/shop/logo.png"></a></h1>
+        <img class="pngFix" src="${S_URL}/static/images/shop/logo.png"></a></h1>
     <nav>
         <ul>
             <li class='step1 <#if P_STEP==1> current</#if>'>在线开店申请</li>

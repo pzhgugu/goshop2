@@ -5,17 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta charset="utf-8">
         <title>商家入驻</title>
-        <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/styles/shop/base.css">
+        <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/shop/base.css">
         <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/store_joinin.css">
-        <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/scripts/dialog/dialog.css">
-        <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/scripts/jquery-ui/themes/ui-lightness/jquery.ui.css">
-        <script src="${S_COMMON_URL}/scripts/jquery/jquery.js"></script>
-        <script src="${S_COMMON_URL}/scripts/jquery/jquery-browser.js"></script>
-        <script src="${S_COMMON_URL}/scripts/jquery/waypoints.js"></script>
-        <script src="${S_COMMON_URL}/scripts/jquery/jquery.validation.js"></script>
-        <script src="${S_COMMON_URL}/scripts/jquery-ui/jquery.ui.js"></script>
-        <script src="${S_COMMON_URL}/scripts/utils/area_array.js"></script>
-        <script src="${S_COMMON_URL}/scripts/shop/common.js"></script>
+        <link type="text/css" rel="stylesheet" href="${S_URL}/static/scripts/dialog/dialog.css">
+        <link type="text/css" rel="stylesheet" href="${S_URL}/static/scripts/jquery-ui/themes/ui-lightness/jquery.ui.css">
+        <script src="${S_URL}/static/scripts/jquery/jquery.js"></script>
+        <script src="${S_URL}/static/scripts/jquery/jquery-browser.js"></script>
+        <script src="${S_URL}/static/scripts/jquery/waypoints.js"></script>
+        <script src="${S_URL}/static/scripts/jquery/jquery.validation.js"></script>
+        <script src="${S_URL}/static/scripts/jquery-ui/jquery.ui.js"></script>
+        <script src="${S_URL}/static/scripts/utils/area_array.js"></script>
+        <script src="${S_URL}/static/scripts/shop/common.js"></script>
     </head>
 
 

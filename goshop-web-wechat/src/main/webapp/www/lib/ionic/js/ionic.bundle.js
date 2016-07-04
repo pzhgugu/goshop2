@@ -14282,8 +14282,8 @@ function Browser(window, document, $log, $sniffer) {
    * location.href/location.replace is used.
    * Returns its own instance to allow chaining
    *
-   * NOTE: this api is intended for use only by the $location service. Please use the
-   * {@link ng.$location $location service} to change url.
+   * NOTE: this api is intended for use only by the $location producer. Please use the
+   * {@link ng.$location $location producer} to change url.
    *
    * @param {string} url New url (when used as setter)
    * @param {boolean=} replace Should new url replace current history record?
@@ -14416,8 +14416,8 @@ function Browser(window, document, $log, $sniffer) {
    *
    * The listener gets called with new url as parameter.
    *
-   * NOTE: this api is intended for use only by the $location service. Please use the
-   * {@link ng.$location $location service} to monitor url changes in angular apps.
+   * NOTE: this api is intended for use only by the $location producer. Please use the
+   * {@link ng.$location $location producer} to monitor url changes in angular apps.
    *
    * @param {function(string)} listener Listener function to be called when url changes.
    * @return {function(string)} Returns the registered listener fn - handy if the fn is anonymous.
@@ -23869,12 +23869,12 @@ function $RootScopeProvider() {
      * details.
      *
      *
-     * @param {Object.<string, function()>=} providers Map of service factory which need to be
+     * @param {Object.<string, function()>=} providers Map of producer factory which need to be
      *                                       provided for the current scope. Defaults to {@link ng}.
      * @param {Object.<string, *>=} instanceCache Provides pre-instantiated services which should
      *                              append/override services provided by `providers`. This is handy
      *                              when unit-testing and having the need to override a default
-     *                              service.
+     *                              producer.
      * @returns {Object} Newly created scope.
      *
      */
@@ -43090,8 +43090,8 @@ function $UrlMatcherFactory() {
    * handle encoding and decoding parameter values:
    *
    * <pre>
-   * // Defines a custom type that gets a value from a service,
-   * // where each service gets different types of values from
+   * // Defines a custom type that gets a value from a producer,
+   * // where each producer gets different types of values from
    * // a backend API:
    * $urlMatcherFactoryProvider.type('dbObject', {}, function(Users, Posts) {
    *
@@ -43108,7 +43108,7 @@ function $UrlMatcherFactory() {
    *     },
    *     decode: function(value, key) {
    *       // Look up the object by ID, using the parameter
-   *       // name (key) to call the correct service
+   *       // name (key) to call the correct producer
    *       return services[key].findById(value);
    *     },
    *     is: function(object, key) {
@@ -43132,7 +43132,7 @@ function $UrlMatcherFactory() {
    *   url: "/{user:dbObject}",
    *   controller: function($scope, $stateParams) {
    *     // $stateParams.user will now be an object returned from
-   *     // the Users service
+   *     // the Users producer
    *   },
    *   // ...
    * });

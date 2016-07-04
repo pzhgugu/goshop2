@@ -36,6 +36,7 @@
                   value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
         <property name="contentType" value="text/html;charset=UTF-8"></property>
         <property name="exposeRequestAttributes" value="true" />
+        <property name="allowSessionOverride" value="true"/>
         <property name="exposeSessionAttributes" value="true" />
         <property name="exposeSpringMacroHelpers" value="true" />
         <property name="requestContextAttribute" value="request" />

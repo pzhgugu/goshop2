@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta charset="utf-8">
         <title>商家入驻</title>
-        <link type="text/css" rel="stylesheet" href="${S_COMMON_URL}/styles/shop/base.css">
+        <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/shop/base.css">
         <link type="text/css" rel="stylesheet" href="${S_URL}/static/styles/store_joinin.css">
-        <script src="${S_COMMON_URL}/scripts/jquery/jquery.js"></script>
+        <script src="${S_URL}/static/scripts/jquery/jquery.js"></script>
     </head>
     <body>
 

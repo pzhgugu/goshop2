@@ -81,7 +81,7 @@
 
     <servlet>
         <servlet-name>validationCode</servlet-name>
-        <servlet-class>com.goshop.common.context.ValidationCodeServlet</servlet-class>
+        <servlet-class>org.goshop.common.context.ValidationCodeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>validationCode</servlet-name>

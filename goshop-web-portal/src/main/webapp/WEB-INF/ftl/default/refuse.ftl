@@ -7,19 +7,19 @@
     <meta name="description" content="">
     <meta name="author" content="ShopNC">
     <meta name="copyright" content="ShopNC Inc. All Rights Reserved">
-    <link href="${S_COMMON_URL}/styles/shop/base.css" rel="stylesheet" type="text/css">
-    <link href="${S_COMMON_URL}/styles/shop/home_header.css" rel="stylesheet" type="text/css">
+    <link href="${S_URL}/static/styles/shop/base.css" rel="stylesheet" type="text/css">
+    <link href="${S_URL}/static/styles/shop/home_header.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="${S_URL}/static/styles/font-awesome/css/font-awesome.min.css">
     <!--[if IE 7]>
     <link rel="stylesheet" href="${S_URL}/static/styles/font-awesome/css/font-awesome-ie7.min.css">
     <![endif]-->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="${S_COMMON_URL}/scripts/utils/html5shiv.js"></script>
-    <script src="${S_COMMON_URL}/scripts/utils/respond.js"></script>
+    <script src="${S_URL}/static/scripts/utils/html5shiv.js"></script>
+    <script src="${S_URL}/static/scripts/utils/respond.js"></script>
     <![endif]-->
     <!--[if IE 6]>
-    <script src="${S_COMMON_URL}/scripts/utils/IE6_PNG.js"></script>
+    <script src="${S_URL}/static/scripts/utils/IE6_PNG.js"></script>
     <script>
         DD_belatedPNG.fix('.pngFix');
     </script>
@@ -41,9 +41,9 @@ catch(e){}
         .msg i { font-size: 48px; vertical-align: middle; margin-right: 10px;}
     </style>
     <script>var COOKIE_PRE = '5BF5_';var _CHARSET = 'utf-8';var SITEURL = 'http://localhost/shopnc/shop';var SHOP_RESOURCE_SITE_URL = 'http://localhost/shopnc/shop/resource';var RESOURCE_SITE_URL = 'http://localhost/shopnc/data/resource';var SHOP_TEMPLATES_URL = 'http://localhost/shopnc/shop/templates/default';</script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery.js"></script>
-    <script src="${S_COMMON_URL}/scripts/jquery/jquery-browser.js"></script>
-    <script src="${S_COMMON_URL}/scripts/shop/common.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery.js"></script>
+    <script src="${S_URL}/static/scripts/jquery/jquery-browser.js"></script>
+    <script src="${S_URL}/static/scripts/shop/common.js"></script>
     <script type="text/javascript">
         $(function(){
             $("#details").children('ul').children('li').click(function(){

@@ -1,0 +1,13 @@
+[INFO ][20160702 10:46:37,087][AbstractApplicationContext:510] Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@44839139: startup date [Sat Jul 02 10:46:37 CST 2016]; root of context hierarchy
+[INFO ][20160702 10:46:37,247][XmlBeanDefinitionReader:317] Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO ][20160702 10:46:37,848][XmlBeanDefinitionReader:317] Loading XML bean definitions from class path resource [spring/spring-mq.xml]
+[INFO ][20160702 10:46:38,003][DefaultListableBeanFactory:822] Overriding bean definition for bean 'consumerSessionAwareMessageListener': replacing [Generic bean: class [org.goshop.mqemail.consumer.ConsumerSessionAwareMessageListener]; scope=singleton; abstract=false; lazyInit=false; autowireMode=1; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [D:\goshop2\goshop-mq-email-consumer\target\classes\org\goshop\mqemail\consumer\ConsumerSessionAwareMessageListener.class]] with [Generic bean: class [org.goshop.mqemail.consumer.ConsumerSessionAwareMessageListener]; scope=; abstract=false; lazyInit=false; autowireMode=1; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in class path resource [spring/spring-mq.xml]]
+[INFO ][20160702 10:46:38,008][XmlBeanDefinitionReader:317] Loading XML bean definitions from class path resource [spring/spring-mail.xml]
+[INFO ][20160702 10:46:38,529][PropertiesLoaderSupport:172] Loading properties file from class path resource [resource/mq.properties]
+[INFO ][20160702 10:46:38,531][PropertiesLoaderSupport:172] Loading properties file from class path resource [resource/mail.properties]
+[INFO ][20160702 10:46:39,773][ExecutorConfigurationSupport:165] Initializing ExecutorService  'threadPool'
+[INFO ][20160702 10:46:39,855][DefaultLifecycleProcessor$LifecycleGroup:341] Starting beans in phase 2147483647
+[INFO ][20160702 10:46:40,227][SingleConnectionFactory:311] Established shared JMS Connection: PooledConnection { ConnectionPool[ActiveMQConnection {id=ID:PC201309200042-51604-1467427600087-1:1,clientId=null,started=false}] }
+[INFO ][20160702 10:46:40,268][DefaultLifecycleProcessor$LifecycleGroup:341] Starting beans in phase 2147483647
+[INFO ][20160702 10:46:40,371][ConsumerSessionAwareMessageListener:47] ==>receive message:{"content":"通过ActiveMQ异步发送邮件！","subject":"ActiveMQ测试","to":"pzh_gugu@126.com"}
+[INFO ][20160702 10:47:21,927][ConsumerSessionAwareMessageListener:47] ==>receive message:{"content":"通过ActiveMQ异步发送邮件！","subject":"ActiveMQ测试","to":"pzh_gugu@126.com"}

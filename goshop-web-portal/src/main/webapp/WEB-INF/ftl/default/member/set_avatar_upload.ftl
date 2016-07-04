@@ -1,7 +1,7 @@
 <#assign P_OP="avatar" />
 <@override name="main">
-<script src="${S_COMMON_URL}/scripts/jquery.Jcrop/jquery.Jcrop.js" type="text/javascript"></script>
-<link id="cssfile2" type="text/css" rel="stylesheet" href="${S_COMMON_URL}/scripts/jquery.Jcrop/jquery.Jcrop.min.css">
+<script src="${S_URL}/static/scripts/jquery.Jcrop/jquery.Jcrop.js" type="text/javascript"></script>
+<link id="cssfile2" type="text/css" rel="stylesheet" href="${S_URL}/static/scripts/jquery.Jcrop/jquery.Jcrop.min.css">
 <form method="post" id="form_cut" action="avatar.html">
     <input type="hidden" value="ok" name="form_submit">
     <input type="hidden" name="x1" id="x1">

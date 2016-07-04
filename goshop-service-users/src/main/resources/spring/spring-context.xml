@@ -10,7 +10,7 @@
 
 	<!-- 加载配置文件 -->
 	<context:property-placeholder  ignore-resource-not-found="true"
-								   location="classpath:common.properties,classpath:resource/*.properties,
+								   location="classpath:common.properties,classpath:resource/*.properties,classpath:mq.properties,
                                   file:/usr/jar_home/users/resource/*.properties" />
 	<!-- 扫描包加载Service实现类 -->
 	<context:component-scan base-package="org.goshop.*.service" />
@@ -20,5 +20,6 @@
 	<import resource="classpath:spring/applicationContext-dubbo-provider.xml" />
 	<import resource="classpath:spring/applicationContext-dubbo-consumer.xml" />
 	<import resource="classpath:spring/applicationContext-shiro.xml" />
+	<import resource="spring-mq.xml" />
 
 </beans>

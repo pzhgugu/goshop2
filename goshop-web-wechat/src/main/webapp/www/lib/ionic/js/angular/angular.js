@@ -11010,7 +11010,7 @@ function $IntervalProvider() {
       *           });
       *         }])
       *       // Register the 'myCurrentTime' directive factory method.
-      *       // We inject $interval and dateFilter service since the factory method is DI.
+      *       producer
       *       .directive('myCurrentTime', ['$interval', 'dateFilter',
       *         function($interval, dateFilter) {
       *           // return the directive link function. (compile function not needed)

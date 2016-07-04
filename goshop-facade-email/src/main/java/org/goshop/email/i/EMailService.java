@@ -1,14 +1,15 @@
 package org.goshop.email.i;
 
+import org.goshop.email.pojo.MailParam;
+
 /**
  * Created by Administrator on 2016/3/21.
  */
 public interface EMailService {
+    void threadSend(MailParam mailParam);
+
     /**
      * 发送邮件
-     * @param email 邮件地址
-     * @param title 邮件标题
-     * @param emailContent 邮件内容
      */
-    void send(String email, String title, String emailContent);
+    void send(MailParam mailParam);
 }

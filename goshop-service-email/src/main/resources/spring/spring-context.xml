@@ -10,10 +10,13 @@
 
 	<!-- 加载配置文件 -->
 	<context:property-placeholder  ignore-resource-not-found="true"
-								   location="classpath:common.properties,classpath:resource/email.properties,
+								   location="classpath:common.properties,classpath:email.properties,classpath:mq.properties,
                                   file:/usr/jar_home/users/resource/email.properties" />
 	<!-- 扫描包加载Service实现类 -->
 	<context:component-scan base-package="org.goshop.*.service" />
-	<import resource="classpath:spring/applicationContext-dubbo-provider.xml" />
+
+	<import resource="spring-mail.xml" />
+	<import resource="spring-mq.xml" />
+	<import resource="applicationContext-dubbo-provider.xml" />
 
 </beans>

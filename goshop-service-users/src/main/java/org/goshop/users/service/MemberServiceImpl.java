@@ -1,11 +1,15 @@
 package org.goshop.users.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
+import org.apache.activemq.command.Message;
+import org.apache.shiro.session.Session;
 import org.goshop.common.exception.MapperException;
 import org.goshop.common.utils.PageUtils;
 import org.goshop.common.utils.RandomUtils;
 import org.goshop.common.utils.RegexValidateUtil;
 import org.goshop.email.i.EMailService;
+import org.goshop.email.pojo.MailParam;
 import org.goshop.shiro.service.PasswordService;
 import org.goshop.users.i.AdminService;
 import org.goshop.users.i.FindPasswordService;
@@ -15,10 +19,13 @@ import org.goshop.users.mapper.master.MemberMapper;
 import org.goshop.users.pojo.Member;
 import org.goshop.users.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
+import javax.jms.JMSException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
@@ -43,6 +50,10 @@ public class MemberServiceImpl implements MemberService {
 
     @Autowired
     PasswordService passwordService;
+
+    @Autowired
+    private JmsTemplate activeMqJmsTemplate;
+
 
     @Override
     public PageInfo<Member> findAll(Integer curPage, Integer pageSize) {
@@ -178,7 +189,16 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void sendEmailFindPassword(String username, String email) {
         String emailContent = findPasswordService.getContent(username);
-        eMailService.send(email,"找回密码",emailContent);
+        final MailParam mail = new MailParam();
+        mail.setTo(email);
+        mail.setSubject("找回密码");
+        mail.setContent(emailContent);
+        //eMailService.send(mail);
+        activeMqJmsTemplate.send(new MessageCreator() {
+            public javax.jms.Message createMessage(javax.jms.Session session) throws JMSException {
+                return session.createTextMessage(JSONObject.toJSONString(mail));
+            }
+        });
     }
 
 
