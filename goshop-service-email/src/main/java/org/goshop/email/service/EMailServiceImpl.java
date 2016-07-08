@@ -1,17 +1,14 @@
 package org.goshop.email.service;
 
 import org.goshop.email.pojo.MailParam;
-import org.goshop.email.utils.SimpleMailSender;
 import org.goshop.email.i.EMailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
 
 @Service("eMailService")
 public class EMailServiceImpl implements EMailService {
