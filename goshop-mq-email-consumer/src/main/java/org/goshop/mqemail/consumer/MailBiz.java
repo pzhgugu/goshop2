@@ -32,8 +32,6 @@ public class MailBiz {
 	 * 
 	 * @param mailParamTemp需要设置四个参数
 	 *            templateName,toMail,subject,mapModel
-	 * @throws Exception
-	 * 
 	 */
 	public void mailSend(final MailParam mailParam) {
 		threadPool.execute(new Runnable() {
