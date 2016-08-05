@@ -19,7 +19,7 @@ public class MQProducerTest extends SpringBaseTest {
         try {
             // 邮件发送
             MailParam mail = new MailParam();
-            mail.setTo("wu-sc@foxmail.com");
+            mail.setTo("xxxx@xxxxl.com");
             mail.setSubject("ActiveMQ测试");
             mail.setContent("通过ActiveMQ异步发送邮件！");
 

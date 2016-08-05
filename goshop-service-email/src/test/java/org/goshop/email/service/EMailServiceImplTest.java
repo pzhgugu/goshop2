@@ -20,7 +20,7 @@ public class EMailServiceImplTest extends SpringBaseTest {
 
        /* SimpleMailSender sms = new SimpleMailSender("pzh_goshop@126.com","pzh1234567");
         try {
-            sms.send("pzh_gugu@126.com","找回密码","你来吧！");
+            sms.send("xxxxx@126.com","找回密码","你来吧！");
         } catch (MessagingException e) {
             e.printStackTrace();
         }*/
@@ -29,7 +29,7 @@ public class EMailServiceImplTest extends SpringBaseTest {
     @Test
     public void threadSpringSend(){
         MailParam mail = new MailParam();
-        mail.setTo("pzh_gugu@126.com");
+        mail.setTo("xxxxxx@126.com");
         mail.setSubject("找回密码2");
         mail.setContent("你来吧！");
         eMailService.threadSend(mail);
@@ -38,7 +38,7 @@ public class EMailServiceImplTest extends SpringBaseTest {
     @Test
     public void springSend(){
         MailParam mail = new MailParam();
-        mail.setTo("pzh_gugu@126.com");
+        mail.setTo("xxxxxx@126.com");
         mail.setSubject("找回密码");
         mail.setContent("你来吧！");
         eMailService.send(mail);
