@@ -26,6 +26,7 @@
             <artifactId>goshop-common-service</artifactId>
         </dependency>
 
+
         <!-- 邮件发送 -->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -37,6 +38,10 @@
             <artifactId>dubbo</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>

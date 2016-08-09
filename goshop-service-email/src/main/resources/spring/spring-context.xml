@@ -15,8 +15,8 @@
 	<!-- 扫描包加载Service实现类 -->
 	<context:component-scan base-package="org.goshop.*.service" />
 
-	<import resource="spring-mail.xml" />
-	<import resource="spring-mq.xml" />
-	<import resource="applicationContext-dubbo-provider.xml" />
+	<import resource="classpath:spring/spring-mail.xml" />
+	<import resource="classpath:spring/spring-mq.xml" />
+	<import resource="classpath:spring/applicationContext-dubbo-provider.xml" />
 
 </beans>
