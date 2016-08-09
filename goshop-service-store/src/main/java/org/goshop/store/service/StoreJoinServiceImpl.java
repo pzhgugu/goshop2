@@ -10,7 +10,7 @@ import org.goshop.goods.pojo.GoodsClass;
 import org.goshop.store.i.StoreClassService;
 import org.goshop.store.i.StoreGradeService;
 import org.goshop.store.i.StoreService;
-import org.goshop.store.mapper.master.StoreJoinMapper;
+import org.goshop.goods.mapper.master.StoreJoinMapper;
 import org.goshop.store.model.JsonManagement;
 import org.goshop.store.model.JsonManagementClass;
 import org.goshop.store.pojo.*;

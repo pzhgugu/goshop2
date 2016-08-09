@@ -4,7 +4,7 @@ import com.github.pagehelper.PageInfo;
 import org.goshop.common.exception.MapperException;
 import org.goshop.common.utils.PageUtils;
 import org.goshop.store.i.StoreGradeService;
-import org.goshop.store.mapper.master.StoreGradeMapper;
+import org.goshop.goods.mapper.master.StoreGradeMapper;
 import org.goshop.store.pojo.StoreGrade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,7 @@ import org.goshop.common.exception.MapperException;
 import org.goshop.common.exception.PageException;
 import org.goshop.common.utils.PageUtils;
 import org.goshop.store.i.StoreClassService;
-import org.goshop.store.mapper.master.StoreClassMapper;
+import org.goshop.goods.mapper.master.StoreClassMapper;
 import org.goshop.store.pojo.StoreClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

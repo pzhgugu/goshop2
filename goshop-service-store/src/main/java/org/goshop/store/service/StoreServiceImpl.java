@@ -3,7 +3,7 @@ package org.goshop.store.service;
 import com.github.pagehelper.PageInfo;
 import org.goshop.common.utils.PageUtils;
 import org.goshop.store.i.StoreService;
-import org.goshop.store.mapper.master.StoreMapper;
+import org.goshop.goods.mapper.master.StoreMapper;
 import org.goshop.store.pojo.Store;
 import org.goshop.store.pojo.StoreJoin;
 import org.goshop.store.pojo.StoreWithBLOBs;

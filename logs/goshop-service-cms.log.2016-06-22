@@ -146,11 +146,11 @@
 [DEBUG][20160622 16:44:53,253][ClassPathScanningCandidateComponentProvider:286] Identified candidate component class: file [D:\goshop2\goshop-service-store\target\classes\org\goshop\store\mapper\master\StoreGradeMapper.class]
 [DEBUG][20160622 16:44:53,253][ClassPathScanningCandidateComponentProvider:286] Identified candidate component class: file [D:\goshop2\goshop-service-store\target\classes\org\goshop\store\mapper\master\StoreJoinMapper.class]
 [DEBUG][20160622 16:44:53,254][ClassPathScanningCandidateComponentProvider:286] Identified candidate component class: file [D:\goshop2\goshop-service-store\target\classes\org\goshop\store\mapper\master\StoreMapper.class]
-[DEBUG][20160622 16:44:53,255][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeClassMapper' and 'org.goshop.store.mapper.master.StoreClassMapper' mapperInterface
-[DEBUG][20160622 16:44:53,258][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeGoodsClassMapper' and 'org.goshop.store.mapper.master.StoreGoodsClassMapper' mapperInterface
-[DEBUG][20160622 16:44:53,258][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeGradeMapper' and 'org.goshop.store.mapper.master.StoreGradeMapper' mapperInterface
-[DEBUG][20160622 16:44:53,259][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeJoinMapper' and 'org.goshop.store.mapper.master.StoreJoinMapper' mapperInterface
-[DEBUG][20160622 16:44:53,259][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeMapper' and 'org.goshop.store.mapper.master.StoreMapper' mapperInterface
+[DEBUG][20160622 16:44:53,255][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeClassMapper' and 'StoreClassMapper' mapperInterface
+[DEBUG][20160622 16:44:53,258][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeGoodsClassMapper' and 'StoreGoodsClassMapper' mapperInterface
+[DEBUG][20160622 16:44:53,258][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeGradeMapper' and 'StoreGradeMapper' mapperInterface
+[DEBUG][20160622 16:44:53,259][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeJoinMapper' and 'StoreJoinMapper' mapperInterface
+[DEBUG][20160622 16:44:53,259][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'storeMapper' and 'StoreMapper' mapperInterface
 [DEBUG][20160622 16:44:53,259][DefaultSingletonBeanRegistry:221] Creating shared instance of singleton bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#1'
 [DEBUG][20160622 16:44:53,259][AbstractAutowireCapableBeanFactory:450] Creating instance of bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#1'
 [DEBUG][20160622 16:44:53,260][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'org.mybatis.spring.mapper.MapperScannerConfigurer#1' to allow for resolving potential circular references
@@ -195,11 +195,11 @@
 [DEBUG][20160622 16:44:53,301][ClassPathScanningCandidateComponentProvider:286] Identified candidate component class: file [D:\goshop2\goshop-service-store\target\classes\org\goshop\store\mapper\read\ReadStoreGradeMapper.class]
 [DEBUG][20160622 16:44:53,301][ClassPathScanningCandidateComponentProvider:286] Identified candidate component class: file [D:\goshop2\goshop-service-store\target\classes\org\goshop\store\mapper\read\ReadStoreJoinMapper.class]
 [DEBUG][20160622 16:44:53,301][ClassPathScanningCandidateComponentProvider:286] Identified candidate component class: file [D:\goshop2\goshop-service-store\target\classes\org\goshop\store\mapper\read\ReadStoreMapper.class]
-[DEBUG][20160622 16:44:53,302][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreClassMapper' and 'org.goshop.store.mapper.read.ReadStoreClassMapper' mapperInterface
-[DEBUG][20160622 16:44:53,303][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreGoodsClassMapper' and 'org.goshop.store.mapper.read.ReadStoreGoodsClassMapper' mapperInterface
-[DEBUG][20160622 16:44:53,303][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreGradeMapper' and 'org.goshop.store.mapper.read.ReadStoreGradeMapper' mapperInterface
-[DEBUG][20160622 16:44:53,303][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreJoinMapper' and 'org.goshop.store.mapper.read.ReadStoreJoinMapper' mapperInterface
-[DEBUG][20160622 16:44:53,304][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreMapper' and 'org.goshop.store.mapper.read.ReadStoreMapper' mapperInterface
+[DEBUG][20160622 16:44:53,302][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreClassMapper' and 'ReadStoreClassMapper' mapperInterface
+[DEBUG][20160622 16:44:53,303][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreGoodsClassMapper' and 'ReadStoreGoodsClassMapper' mapperInterface
+[DEBUG][20160622 16:44:53,303][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreGradeMapper' and 'ReadStoreGradeMapper' mapperInterface
+[DEBUG][20160622 16:44:53,303][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreJoinMapper' and 'ReadStoreJoinMapper' mapperInterface
+[DEBUG][20160622 16:44:53,304][ClassPathMapperScanner:164] Creating MapperFactoryBean with name 'readStoreMapper' and 'ReadStoreMapper' mapperInterface
 [DEBUG][20160622 16:44:53,321][DefaultSingletonBeanRegistry:221] Creating shared instance of singleton bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
 [DEBUG][20160622 16:44:53,321][AbstractAutowireCapableBeanFactory:450] Creating instance of bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0'
 [DEBUG][20160622 16:44:53,323][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'org.springframework.context.support.PropertySourcesPlaceholderConfigurer#0' to allow for resolving potential circular references
@@ -320,9 +320,9 @@
 [DEBUG][20160622 16:44:53,632][AbstractAutowireCapableBeanFactory:450] Creating instance of bean '(inner bean)#23a12376'
 [DEBUG][20160622 16:44:53,658][AbstractAutowireCapableBeanFactory:478] Finished creating instance of bean '(inner bean)#23a12376'
 [DEBUG][20160622 16:44:53,659][AbstractAutowireCapableBeanFactory:478] Finished creating instance of bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
-[DEBUG][20160622 16:44:53,678][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreClassServiceImpl]: AutowiredFieldElement for org.goshop.store.mapper.master.StoreClassMapper org.goshop.store.service.StoreClassServiceImpl.storeClassMapper
+[DEBUG][20160622 16:44:53,678][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreClassServiceImpl]: AutowiredFieldElement for StoreClassMapper org.goshop.store.service.StoreClassServiceImpl.storeClassMapper
 [DEBUG][20160622 16:44:53,678][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'storeClassService' to allow for resolving potential circular references
-[DEBUG][20160622 16:44:53,682][InjectionMetadata:86] Processing injected element of bean 'storeClassService': AutowiredFieldElement for org.goshop.store.mapper.master.StoreClassMapper org.goshop.store.service.StoreClassServiceImpl.storeClassMapper
+[DEBUG][20160622 16:44:53,682][InjectionMetadata:86] Processing injected element of bean 'storeClassService': AutowiredFieldElement for StoreClassMapper org.goshop.store.service.StoreClassServiceImpl.storeClassMapper
 [DEBUG][20160622 16:44:53,688][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
 [DEBUG][20160622 16:44:53,726][LogFactory:128] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
 [DEBUG][20160622 16:44:53,731][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
@@ -624,9 +624,9 @@ return extension.getProxy(arg0);
 [DEBUG][20160622 16:44:56,768][DefaultSingletonBeanRegistry:221] Creating shared instance of singleton bean 'storeGoodsClassService'
 [DEBUG][20160622 16:44:56,768][AbstractAutowireCapableBeanFactory:450] Creating instance of bean 'storeGoodsClassService'
 [DEBUG][20160622 16:44:56,769][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
-[DEBUG][20160622 16:44:56,770][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreGoodsClassServiceImpl]: AutowiredFieldElement for org.goshop.store.mapper.master.StoreGoodsClassMapper org.goshop.store.service.StoreGoodsClassServiceImpl.storeGoodsClassMapper
+[DEBUG][20160622 16:44:56,770][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreGoodsClassServiceImpl]: AutowiredFieldElement for StoreGoodsClassMapper org.goshop.store.service.StoreGoodsClassServiceImpl.storeGoodsClassMapper
 [DEBUG][20160622 16:44:56,770][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'storeGoodsClassService' to allow for resolving potential circular references
-[DEBUG][20160622 16:44:56,774][InjectionMetadata:86] Processing injected element of bean 'storeGoodsClassService': AutowiredFieldElement for org.goshop.store.mapper.master.StoreGoodsClassMapper org.goshop.store.service.StoreGoodsClassServiceImpl.storeGoodsClassMapper
+[DEBUG][20160622 16:44:56,774][InjectionMetadata:86] Processing injected element of bean 'storeGoodsClassService': AutowiredFieldElement for StoreGoodsClassMapper org.goshop.store.service.StoreGoodsClassServiceImpl.storeGoodsClassMapper
 [DEBUG][20160622 16:44:56,776][AbstractBeanFactory:248] Returning cached instance of singleton bean 'storeGoodsClassMapper'
 [DEBUG][20160622 16:44:56,779][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
 [DEBUG][20160622 16:44:56,779][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
@@ -668,9 +668,9 @@ return extension.getProxy(arg0);
 [DEBUG][20160622 16:44:56,812][DefaultSingletonBeanRegistry:221] Creating shared instance of singleton bean 'storeGradeService'
 [DEBUG][20160622 16:44:56,812][AbstractAutowireCapableBeanFactory:450] Creating instance of bean 'storeGradeService'
 [DEBUG][20160622 16:44:56,813][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
-[DEBUG][20160622 16:44:56,814][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreGradeServiceImpl]: AutowiredFieldElement for org.goshop.store.mapper.master.StoreGradeMapper org.goshop.store.service.StoreGradeServiceImpl.storeGradeMapper
+[DEBUG][20160622 16:44:56,814][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreGradeServiceImpl]: AutowiredFieldElement for StoreGradeMapper org.goshop.store.service.StoreGradeServiceImpl.storeGradeMapper
 [DEBUG][20160622 16:44:56,815][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'storeGradeService' to allow for resolving potential circular references
-[DEBUG][20160622 16:44:56,818][InjectionMetadata:86] Processing injected element of bean 'storeGradeService': AutowiredFieldElement for org.goshop.store.mapper.master.StoreGradeMapper org.goshop.store.service.StoreGradeServiceImpl.storeGradeMapper
+[DEBUG][20160622 16:44:56,818][InjectionMetadata:86] Processing injected element of bean 'storeGradeService': AutowiredFieldElement for StoreGradeMapper org.goshop.store.service.StoreGradeServiceImpl.storeGradeMapper
 [DEBUG][20160622 16:44:56,819][AbstractBeanFactory:248] Returning cached instance of singleton bean 'storeGradeMapper'
 [DEBUG][20160622 16:44:56,822][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
 [DEBUG][20160622 16:44:56,823][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
@@ -720,13 +720,13 @@ return extension.getProxy(arg0);
 [DEBUG][20160622 16:44:56,855][DefaultSingletonBeanRegistry:221] Creating shared instance of singleton bean 'storeJoinService'
 [DEBUG][20160622 16:44:56,856][AbstractAutowireCapableBeanFactory:450] Creating instance of bean 'storeJoinService'
 [DEBUG][20160622 16:44:56,856][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
-[DEBUG][20160622 16:44:56,860][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreJoinServiceImpl]: AutowiredFieldElement for org.goshop.store.mapper.master.StoreJoinMapper org.goshop.store.service.StoreJoinServiceImpl.storeJoinMapper
+[DEBUG][20160622 16:44:56,860][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreJoinServiceImpl]: AutowiredFieldElement for StoreJoinMapper org.goshop.store.service.StoreJoinServiceImpl.storeJoinMapper
 [DEBUG][20160622 16:44:56,860][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreJoinServiceImpl]: AutowiredFieldElement for org.goshop.store.i.StoreClassService org.goshop.store.service.StoreJoinServiceImpl.storeClassService
 [DEBUG][20160622 16:44:56,861][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreJoinServiceImpl]: AutowiredFieldElement for org.goshop.store.i.StoreGradeService org.goshop.store.service.StoreJoinServiceImpl.storeGradeService
 [DEBUG][20160622 16:44:56,861][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreJoinServiceImpl]: AutowiredFieldElement for org.goshop.goods.i.GoodsClassService org.goshop.store.service.StoreJoinServiceImpl.goodsClassService
 [DEBUG][20160622 16:44:56,861][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreJoinServiceImpl]: AutowiredFieldElement for org.goshop.store.i.StoreService org.goshop.store.service.StoreJoinServiceImpl.storeService
 [DEBUG][20160622 16:44:56,861][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'storeJoinService' to allow for resolving potential circular references
-[DEBUG][20160622 16:44:56,864][InjectionMetadata:86] Processing injected element of bean 'storeJoinService': AutowiredFieldElement for org.goshop.store.mapper.master.StoreJoinMapper org.goshop.store.service.StoreJoinServiceImpl.storeJoinMapper
+[DEBUG][20160622 16:44:56,864][InjectionMetadata:86] Processing injected element of bean 'storeJoinService': AutowiredFieldElement for StoreJoinMapper org.goshop.store.service.StoreJoinServiceImpl.storeJoinMapper
 [DEBUG][20160622 16:44:56,865][AbstractBeanFactory:248] Returning cached instance of singleton bean 'storeJoinMapper'
 [DEBUG][20160622 16:44:56,868][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
 [DEBUG][20160622 16:44:56,869][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
@@ -870,9 +870,9 @@ return extension.getCache(arg0);
 [DEBUG][20160622 16:44:57,674][DefaultSingletonBeanRegistry:221] Creating shared instance of singleton bean 'storeService'
 [DEBUG][20160622 16:44:57,675][AbstractAutowireCapableBeanFactory:450] Creating instance of bean 'storeService'
 [DEBUG][20160622 16:44:57,675][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
-[DEBUG][20160622 16:44:57,676][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreServiceImpl]: AutowiredFieldElement for org.goshop.store.mapper.master.StoreMapper org.goshop.store.service.StoreServiceImpl.storeMapper
+[DEBUG][20160622 16:44:57,676][InjectionMetadata:72] Registered injected element on class [org.goshop.store.service.StoreServiceImpl]: AutowiredFieldElement for StoreMapper org.goshop.store.service.StoreServiceImpl.storeMapper
 [DEBUG][20160622 16:44:57,676][AbstractAutowireCapableBeanFactory:523] Eagerly caching bean 'storeService' to allow for resolving potential circular references
-[DEBUG][20160622 16:44:57,679][InjectionMetadata:86] Processing injected element of bean 'storeService': AutowiredFieldElement for org.goshop.store.mapper.master.StoreMapper org.goshop.store.service.StoreServiceImpl.storeMapper
+[DEBUG][20160622 16:44:57,679][InjectionMetadata:86] Processing injected element of bean 'storeService': AutowiredFieldElement for StoreMapper org.goshop.store.service.StoreServiceImpl.storeMapper
 [DEBUG][20160622 16:44:57,680][AbstractBeanFactory:248] Returning cached instance of singleton bean 'storeMapper'
 [DEBUG][20160622 16:44:57,683][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'
 [DEBUG][20160622 16:44:57,684][AbstractBeanFactory:248] Returning cached instance of singleton bean 'org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0'

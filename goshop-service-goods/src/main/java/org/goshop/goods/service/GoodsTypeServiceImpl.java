@@ -2,7 +2,7 @@ package org.goshop.goods.service;
 
 import org.goshop.goods.i.GoodsTypeService;
 import org.goshop.goods.pojo.GoodsType;
-import org.goshop.store.mapper.master.GoodsTypeMapper;
+import org.goshop.goods.mapper.master.GoodsTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
