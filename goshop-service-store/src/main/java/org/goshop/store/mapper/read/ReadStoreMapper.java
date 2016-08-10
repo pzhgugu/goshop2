@@ -1,4 +1,4 @@
-package org.goshop.goods.mapper.read;
+package org.goshop.store.mapper.read;
 
 import org.goshop.store.pojo.Store;
 import org.goshop.store.pojo.StoreWithBLOBs;

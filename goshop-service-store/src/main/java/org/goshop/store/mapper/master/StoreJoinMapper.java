@@ -1,11 +1,11 @@
-package org.goshop.goods.mapper.read;
+package org.goshop.store.mapper.master;
 
 import org.goshop.store.pojo.StoreJoin;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface ReadStoreJoinMapper {
+public interface StoreJoinMapper {
 
     //已提交申请
     static String JOIN_STATIC_APPLY = "10";

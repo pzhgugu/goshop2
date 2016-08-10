@@ -5,7 +5,7 @@ import org.goshop.common.exception.MapperException;
 import org.goshop.common.exception.PageException;
 import org.goshop.common.utils.PageUtils;
 import org.goshop.store.i.StoreClassService;
-import org.goshop.goods.mapper.master.StoreClassMapper;
+import org.goshop.store.mapper.master.StoreClassMapper;
 import org.goshop.store.pojo.StoreClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +46,7 @@ public class StoreClassServiceImpl implements StoreClassService {
     public PageInfo<StoreClass> findTreePageByParentId(Integer curPage,Integer pageSize,Long parentId) {
         PageUtils.startPage(curPage,pageSize);
         //2、查询结果
-         List<StoreClass> list=storeClassMapper.findTreeByParentId(parentId);
+        List<StoreClass> list=storeClassMapper.findTreeByParentId(parentId);
         //3、取分页后结果
         PageInfo<StoreClass> pageInfo = new PageInfo<>(list);
         return pageInfo;

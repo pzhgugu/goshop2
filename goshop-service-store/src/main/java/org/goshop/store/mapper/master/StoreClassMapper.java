@@ -1,11 +1,11 @@
-package org.goshop.goods.mapper.read;
+package org.goshop.store.mapper.master;
 
 import org.goshop.store.pojo.StoreClass;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface ReadStoreClassMapper {
+public interface StoreClassMapper {
     int deleteByPrimaryKey(Long id);
 
     int insert(StoreClass record);

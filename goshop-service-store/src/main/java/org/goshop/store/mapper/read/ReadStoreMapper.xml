@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.goshop.goods.mapper.master.StoreMapper" >
+<mapper namespace="org.goshop.store.mapper.read.ReadStoreMapper" >
   <resultMap id="BaseResultMap" type="org.goshop.store.pojo.Store" >
     <id column="store_id" property="storeId" jdbcType="INTEGER" />
     <result column="store_name" property="storeName" jdbcType="VARCHAR" />

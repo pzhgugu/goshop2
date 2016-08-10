@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.goshop.goods.mapper.master.StoreGradeMapper" >
+<mapper namespace="org.goshop.store.mapper.master.StoreGradeMapper" >
   <resultMap id="BaseResultMap" type="org.goshop.store.pojo.StoreGrade" >
     <id column="sg_id" property="sgId" jdbcType="INTEGER" />
     <result column="sg_name" property="sgName" jdbcType="CHAR" />
