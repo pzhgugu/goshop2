@@ -17,7 +17,7 @@
     </properties>
 
     <build>
-        <finalName>pay-common-config</finalName>
+        <finalName>goshop-common-config</finalName>
         <resources>
             <!-- 先指定 src/main/resources下所有文件及文件夹为资源文件 -->
             <resource>
