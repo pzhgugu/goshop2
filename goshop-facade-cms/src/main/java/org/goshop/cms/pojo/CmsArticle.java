@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class CmsArticle implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Long articleId;
 
     private String articleTitle;

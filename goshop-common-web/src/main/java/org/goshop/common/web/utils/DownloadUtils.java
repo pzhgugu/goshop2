@@ -26,7 +26,7 @@ public class DownloadUtils {
         try {
             br = new BufferedInputStream(new FileInputStream(file));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FileException("file not found: " + file.getPath());
         }
         byte[] buf = new byte[1024];
         int len = 0;
@@ -35,20 +35,21 @@ public class DownloadUtils {
         if (!StringUtils.hasText(inline)) {
             inline = "attachment";
         }
-        response.setContentType(getContentType(file.getPath()));
+        String contentType = getContentType(file.getPath());
+        response.setContentType(StringUtils.hasText(contentType) ? contentType : "application/octet-stream");
         if(!StringUtils.hasText(fileName)){
             fileName=file.getName();
-        }else{
-            String s=file.getPath();
-            String s1=s.substring(s.indexOf(".") + 1, s.length());
-            if(StringUtils.hasText(s1)){
-                fileName=fileName+"."+s1;
+        } else {
+            String sourceFileName = file.getName();
+            int dotIndex = sourceFileName.lastIndexOf(".");
+            if(dotIndex > -1 && dotIndex < sourceFileName.length() - 1){
+                fileName=fileName+"."+sourceFileName.substring(dotIndex + 1);
             }
         }
         try {
             fileName = URLEncoder.encode(fileName, "UTF-8");
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            throw new FileException("file name encode failed: " + file.getPath());
         }
         if (inline!=null&&inline.equals("1")) { // 在线打开方式
             response.setHeader("Content-Disposition", "inline; filename=" + fileName + ";");
@@ -61,11 +62,12 @@ public class DownloadUtils {
             out = response.getOutputStream();
             while ((len = br.read(buf)) > 0)
                 out.write(buf, 0, len);
-            br.close();
             out.flush();
-            out.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FileException("file download failed: " + file.getPath());
+        } finally {
+            closeQuietly(br);
+            closeQuietly(out);
         }
     }
 
@@ -75,9 +77,19 @@ public class DownloadUtils {
         try {
             contentType = Files.probeContentType(path);
         } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
         return contentType;
+    }
+
+    private static void closeQuietly(Closeable closeable) {
+        if (closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException ignored) {
+        }
     }
 
     public static void download(HttpServletResponse response, String filePath, String inline,String fileName) {

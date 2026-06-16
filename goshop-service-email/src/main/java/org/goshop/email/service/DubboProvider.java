@@ -16,11 +16,24 @@ public class DubboProvider {
 	private static final Log log = LogFactory.getLog(DubboProvider.class);
 
 	public static void main(String[] args) {
+		ClassPathXmlApplicationContext context = null;
 		try {
-			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/spring-context.xml");
+			context = new ClassPathXmlApplicationContext("classpath:spring/spring-context.xml");
 			context.start();
+			final ClassPathXmlApplicationContext startedContext = context;
+			Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+				@Override
+				public void run() {
+					startedContext.close();
+				}
+			}));
+			log.info("== DubboProvider context started ==");
 		} catch (Exception e) {
 			log.error("== DubboProvider context start error:",e);
+			if (context != null) {
+				context.close();
+			}
+			return;
 		}
 		synchronized (DubboProvider.class) {
 			while (true) {

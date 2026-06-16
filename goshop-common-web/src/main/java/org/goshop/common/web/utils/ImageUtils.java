@@ -1,22 +1,23 @@
 package org.goshop.common.web.utils;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.goshop.common.utils.FileUtils;
 import org.goshop.common.utils.IDUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Iterator;
 
 /**
  * 创 建 人：gugu
@@ -131,7 +132,7 @@ public class ImageUtils {
 	public static void resize(File originalFile, File resizedFile,
 							  int newWidth, float quality) throws IOException {
 
-		if (quality > 1) {
+		if (quality < 0 || quality > 1) {
 			throw new IllegalArgumentException(
 					"Quality has to be between 0 and 1");
 		}
@@ -143,7 +144,7 @@ public class ImageUtils {
 	public static void resize(Image image, File resizedFile,
 							  int newWidth, float quality) throws IOException {
 
-		if (quality > 1) {
+		if (quality < 0 || quality > 1) {
 			throw new IllegalArgumentException(
 					"Quality has to be between 0 and 1");
 		}
@@ -155,7 +156,7 @@ public class ImageUtils {
 	public static void resize(ImageIcon ii, File resizedFile,
 							  int newWidth, float quality) throws IOException {
 
-		if (quality > 1) {
+		if (quality < 0 || quality > 1) {
 			throw new IllegalArgumentException(
 					"Quality has to be between 0 and 1");
 		}
@@ -197,20 +198,36 @@ public class ImageUtils {
 		ConvolveOp cOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null);
 		bufferedImage = cOp.filter(bufferedImage, null);
 
-		// Write the jpeg to a file.
-		FileOutputStream out = new FileOutputStream(resizedFile);
-
-		// Encodes image as a JPEG data stream
-		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-
-		JPEGEncodeParam param = encoder
-				.getDefaultJPEGEncodeParam(bufferedImage);
-
-		param.setQuality(quality, true);
-
-		encoder.setJPEGEncodeParam(param);
-		encoder.encode(bufferedImage);
+		writeJpeg(bufferedImage, resizedFile, quality);
 	} // Example usage
+
+	private static void writeJpeg(BufferedImage image, File file, float quality)
+			throws IOException {
+		if (file.getParentFile() != null && !file.getParentFile().exists()) {
+			file.getParentFile().mkdirs();
+		}
+		Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("jpg");
+		if (!writers.hasNext()) {
+			throw new IOException("No JPEG writer available");
+		}
+		ImageWriter writer = writers.next();
+		ImageOutputStream imageOut = null;
+		try {
+			imageOut = ImageIO.createImageOutputStream(file);
+			writer.setOutput(imageOut);
+			ImageWriteParam param = writer.getDefaultWriteParam();
+			if (param.canWriteCompressed()) {
+				param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+				param.setCompressionQuality(quality);
+			}
+			writer.write(null, new IIOImage(image, null, null), param);
+		} finally {
+			if (imageOut != null) {
+				imageOut.close();
+			}
+			writer.dispose();
+		}
+	}
 
 	public static String save(String rootPath,String catalogue,MultipartFile pic, int maxWidth) throws IOException {
 		BufferedImage bi = null;

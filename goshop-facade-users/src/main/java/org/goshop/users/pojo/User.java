@@ -6,6 +6,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class User implements Principal, Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private String userName;

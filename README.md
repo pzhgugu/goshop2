@@ -1,8 +1,127 @@
-# goshop2
+# Goshop2
 
-goshop2 是一个基于 Java 传统 SOA 架构的电商系统重构版。项目使用 Maven 多模块组织代码，将公共能力、RPC 接口、业务服务、Web 应用、移动端页面和数据库脚本拆分维护；服务间通过 Dubbo 暴露与调用，数据层按业务库拆分，并预留主库写入、从库读取的配置。
+[![GitHub stars](https://img.shields.io/github/stars/pzhgugu/goshop2?style=social)](https://github.com/pzhgugu/goshop2/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/pzhgugu/goshop2?style=social)](https://github.com/pzhgugu/goshop2/forks)
+[![Java](https://img.shields.io/badge/Java-7-blue.svg)](pom.xml)
+[![Dubbo](https://img.shields.io/badge/Dubbo-2.5.3-brightgreen.svg)](pom.xml)
+[![Spring](https://img.shields.io/badge/Spring-4.1.6-brightgreen.svg)](pom.xml)
 
-> 说明：这是一个历史项目，当前代码保留了 2016 年前后的技术栈、配置方式和部分测试数据。README 以当前仓库内容为准，重点帮助你理解项目结构、构建方式和本地启动顺序。
+Goshop2 is a distributed e-commerce platform based on Spring, Dubbo and MyBatis.
+
+它展示了一套典型企业 Java SOA 电商系统的工程组织方式：按业务拆分数据库，按 Facade/Provider/Consumer 分层拆分服务，并使用 Dubbo、ZooKeeper、Redis、MyBatis、Shiro、ActiveMQ 等组件完成分布式服务治理、读写分离、会话共享、后台管理、商城门户、CMS 和微信端接入。
+
+This repository is maintained as a reference implementation for developers studying large-scale Java SOA applications.
+
+## 项目亮点
+
+- Distributed Service Architecture：基于 Dubbo 的 Facade、Provider、Consumer 分层。
+- Database Sharding：按用户、CMS、商品、店铺拆分业务库。
+- Read/Write Separation：每个业务服务保留 `master.jdbc.*` 与 `read.jdbc.*` 两套数据源。
+- Redis Session Sharing：Shiro Session 和缓存接入 Redis。
+- CMS System：文章、多语言内容、文章分类、幻灯片管理。
+- Multi-store Support：店铺、店铺等级、商家入驻、店内分类。
+- WeChat Integration：微信服务器校验、消息处理、菜单创建和移动端页面。
+- Classic Enterprise Java Stack：保留 Spring MVC + Dubbo + MyBatis 时代的完整工程实践。
+
+## 项目统计
+
+| 指标 | 数量 |
+| --- | --- |
+| GitHub Stars | 1.1k+ |
+| GitHub Forks | 687+ |
+| 顶层工程目录 | 20+ |
+| 根 POM 聚合模块 | 19 |
+| Maven POM 文件 | 22 |
+| 业务数据库 | 4 |
+| Dubbo Provider 应用 | 5 |
+| Dubbo 暴露服务接口 | 15 |
+| Web 应用 | 4 |
+
+Stars/Forks 为 GitHub 当前约数；顶部 badge 会随仓库状态实时刷新。
+
+## 架构图
+
+```text
+                 +----------------+
+                 |    Browser     |
+                 +--------+-------+
+                          |
+        +-----------------+-----------------+
+        |                 |                 |
++-------v-------+ +-------v-------+ +-------v-------+
+| Admin Console | |  Shop Portal  | | WeChat Portal |
+|  /admin       | |  /shop        | |  /wx          |
++-------+-------+ +-------+-------+ +-------+-------+
+        |                 |                 |
+        +-----------------+-----------------+
+                          |
+                   Dubbo Consumer
+                          |
+              +-----------v-----------+
+              |      ZooKeeper        |
+              |   Service Registry    |
+              +-----------+-----------+
+                          |
+     +--------------------+--------------------+
+     |                    |                    |
++----v-----+       +------v------+      +------v------+
+|  Users   |       |    CMS      |      |   Goods     |
+| Service  |       |  Service    |      |  Service    |
++----+-----+       +------+------+      +------+------+
+     |                    |                    |
++----v-----+       +------v------+      +------v------+
+|  Store   |       |   Email     |      | ActiveMQ    |
+| Service  |       |  Service    |      |   Mail      |
++----+-----+       +------+------+      +-------------+
+     |                    |
+     +----------+---------+
+                |
+      +---------v----------+
+      | MySQL Business DBs |
+      | user/cms/goods/store |
+      +---------+----------+
+                |
+      +---------v----------+
+      | Redis / FastDFS /  |
+      | Solr Optional Infra|
+      +--------------------+
+```
+
+## Screenshots
+
+当前仓库没有提交完整运行态截图。为了避免 README 出现失效图片链接，建议补图时统一放到 `docs/images/`：
+
+| 页面 | 建议路径 | 说明 |
+| --- | --- | --- |
+| Admin Console | `docs/images/admin.png` | 后台管理、CMS、会员管理页面 |
+| Shop Portal | `docs/images/shop.png` | 商城门户、会员中心、入驻流程 |
+| WeChat Portal | `docs/images/wechat.png` | 微信端/Ionic 移动页面 |
+
+补齐截图后可以把本节替换为：
+
+```markdown
+### Admin Console
+![Admin Console](docs/images/admin.png)
+
+### Shop Portal
+![Shop Portal](docs/images/shop.png)
+
+### WeChat Portal
+![WeChat Portal](docs/images/wechat.png)
+```
+
+## Background
+
+Goshop2 was created as a refactored version of the original Goshop project.
+
+The goal was to explore:
+
+- Service-oriented architecture (SOA)
+- Database read/write separation
+- Business database isolation
+- Distributed service deployment using Dubbo
+
+Although the technology stack reflects practices common around 2015-2017, the project remains valuable for studying the evolution of enterprise Java systems.
 
 ## 技术栈
 
@@ -137,11 +256,9 @@ Web 模块打包后会生成：
 | 模块 | WAR 名 | 上下文路径 |
 | --- | --- | --- |
 | `goshop-web-manager` | `admin.war` | `/admin` |
-| `goshop-web-cms` | `cms_r.war` | 见下方说明 |
+| `goshop-web-cms` | `cms_r.war` | `/cms_r` |
 | `goshop-web-portal` | `shop.war` | `/shop` |
 | `goshop-web-wechat` | `wx.war` | `/wx` |
-
-`goshop-web-cms` 的 POM 中 `warName` 是 `cms_r`，但各 Web 模块的 `resource.properties` 当前把 `SHOP_REST_URL` 配为 `http://127.0.0.1:8080/shop_r`。部署时请二选一保持一致：将 CMS REST 应用部署到 `/shop_r`，或把这些配置改为 `/cms_r`。
 
 ## 启动顺序
 
@@ -175,7 +292,7 @@ org.goshop.store.service.DubboProvider
 
 ```text
 http://127.0.0.1:8080/admin
-http://127.0.0.1:8080/shop_r 或 http://127.0.0.1:8080/cms_r
+http://127.0.0.1:8080/cms_r
 http://127.0.0.1:8080/shop
 http://127.0.0.1:8080/wx
 ```

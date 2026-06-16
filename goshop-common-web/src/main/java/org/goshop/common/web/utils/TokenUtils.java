@@ -1,6 +1,6 @@
 package org.goshop.common.web.utils;
 
-import sun.misc.BASE64Encoder;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.MessageDigest;
@@ -33,7 +33,7 @@ public class TokenUtils {
         try {
             MessageDigest md = MessageDigest.getInstance("md5");        //注意下面的处理方式
             byte[] md5 = md.digest(token.getBytes());
-            token = new BASE64Encoder().encode(md5); //base64编码
+            token = Base64.encodeBase64String(md5); //base64编码
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }

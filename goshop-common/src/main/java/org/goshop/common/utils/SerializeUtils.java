@@ -13,36 +13,44 @@ public class SerializeUtils {
             return null;
         }
         ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream outo = null;
         try {
-            ObjectOutputStream outo = new ObjectOutputStream(out);
+            outo = new ObjectOutputStream(out);
             outo.writeObject(o);
+            outo.flush();
+            return out.toByteArray();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            return null;
+        } finally {
+            closeQuietly(outo);
+            closeQuietly(out);
         }
-
-        return out.toByteArray();
     }
 
     public static Object deserialize(byte[] b) {
         if(b==null){
             return null;
         }
-        ObjectInputStream oin;
+        ObjectInputStream oin = null;
         try {
             oin = new ObjectInputStream(new ByteArrayInputStream(b));
-            try {
-                return oin.readObject();
-            } catch (ClassNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                return null;
-            }
+            return oin.readObject();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
             return null;
+        } catch (ClassNotFoundException e) {
+            return null;
+        } finally {
+            closeQuietly(oin);
         }
+    }
 
+    private static void closeQuietly(Closeable closeable) {
+        if (closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException ignored) {
+        }
     }
 }

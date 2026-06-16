@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Store  implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Integer storeId;
 
     private String storeName;

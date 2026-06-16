@@ -117,17 +117,17 @@ public class FastDFSAttachmentImpl implements AttachmentService {
         TrackerGroup tg = new TrackerGroup(new InetSocketAddress[]{new InetSocketAddress(hostName, port)});
         TrackerClient tc = new TrackerClient(tg);
         try{
-            trackerServer = tc.getConnection();
+            trackerServer = tc.getTrackerServer();
         }catch (IOException e){
-            e.printStackTrace();
-            return;
+            throw new FileException(e.getMessage());
         }
         if(trackerServer!=null){
             try {
                 storageServer = tc.getStoreStorage(trackerServer);
             } catch (IOException e) {
-                e.printStackTrace();
-                return;
+                throw new FileException(e.getMessage());
+            } catch (MyException e) {
+                throw new FileException(e.getMessage());
             }
         }
         if(storageServer!=null) {
@@ -254,22 +254,14 @@ public class FastDFSAttachmentImpl implements AttachmentService {
     }
 
     private void close(){
-        if(trackerServer!=null) {
+        if(storageClient!=null) {
             try {
-                trackerServer.close();
+                storageClient.close();
             } catch (IOException e) {
-                e.printStackTrace();
             }
-            trackerServer = null;
         }
-        if(storageServer!=null){
-            try {
-                storageServer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            storageServer=null;
-        }
+        trackerServer = null;
+        storageServer=null;
         storageClient=null;
     }
 }

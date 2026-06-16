@@ -3,6 +3,8 @@
  */
 package org.goshop.email.pojo;
 
+import java.io.Serializable;
+
 /**
  * 
  * @描述: 邮件参数封装类 .
@@ -10,7 +12,9 @@ package org.goshop.email.pojo;
  * @创建时间: 2015-3-18,上午1:09:03 .
  * @版本号: V1.0 .
  */
-public class MailParam {
+public class MailParam implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	/** 发件人 **/
 	private String from;

@@ -9,6 +9,8 @@ import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class GoodsClass  implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @JsonProperty("gc_id")
     private Integer gcId;
     @JsonProperty("gc_name")
